@@ -145,6 +145,17 @@
     });
   }
 
+  /* ---------- card spotlight (cursor-follow glow) ---------- */
+  if (!reduced && window.matchMedia("(pointer:fine)").matches) {
+    document.querySelectorAll(".vcard").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    });
+  }
+
   /* ---------- active nav link on scroll ---------- */
   var navMap = {};
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) {
