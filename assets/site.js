@@ -7,26 +7,9 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* ------------------------------------------------------------------
-     Gallery content. To add photos: put the file in assets/img/ and add
-     a line here. `cat` is one of the filter keys in GALLERY_FILTERS.
-     ------------------------------------------------------------------ */
-  var GALLERY_FILTERS = [
-    ['all', 'Everything'],
-    ['ventures', 'Ventures'],
-    ['community', 'Community'],
-    ['projects', 'Projects'],
-    ['life', 'Life']
-  ];
-  var GALLERY = [
-    { src: 'assets/img/g-aerobin.webp', w: 1600, h: 918, cat: 'community', caption: 'EarthPulse: students and staff beside the Aerobin composter we installed at school' },
-    { src: 'assets/img/af-team.webp', w: 768, h: 1024, cat: 'ventures', caption: 'A&F Ventures: working through a client build with the team' },
-    { src: 'assets/img/g-classroom.webp', w: 812, h: 600, cat: 'community', caption: 'EarthPulse: leading a session with students in a classroom' },
-    { src: 'assets/img/g-fingerprint-tree.webp', w: 1600, h: 1200, cat: 'community', caption: 'EarthPulse: students around our fingerprint tree poster on campus' },
-    { src: 'assets/img/g-twister.webp', video: 'assets/img/g-twister.mp4', w: 960, h: 540, cat: 'community', caption: 'EarthPulse: a game of Twister during an awareness activity (video)' },
-    { src: 'assets/img/qaffee.webp', w: 1200, h: 750, cat: 'projects', caption: 'Qaffee Point: the ordering website we built through A&F Ventures' },
-    { src: 'assets/img/portrait.webp', w: 1000, h: 1000, cat: 'life', caption: 'Avi Dharani' }
-  ];
+  var DATA = window.SITE_DATA || { ACTIVITIES: [], CERTS: [], GALLERY_EXTRA: [] };
+  var ACTS = DATA.ACTIVITIES;
+  var esc = function (t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
 
   /* ---------------- loader ---------------- */
   var loader = $('#loader');
@@ -313,95 +296,355 @@
     });
   });
 
-  /* ---------------- gallery ---------------- */
-  var gal = $('#galGrid'), gf = $('#galFilter');
-  var shown = [];
-  if (gal) {
-    var used = {};
-    GALLERY.forEach(function (g) { used[g.cat] = 1; });
-    GALLERY_FILTERS.forEach(function (f, i) {
-      if (f[0] !== 'all' && !used[f[0]]) return;
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.textContent = f[1];
-      b.setAttribute('data-f', f[0]);
-      b.setAttribute('aria-pressed', i === 0);
-      gf.appendChild(b);
-    });
-    GALLERY.forEach(function (g, i) {
-      var fig = document.createElement('figure');
-      fig.className = 'gi rv';
-      fig.style.setProperty('--d', ((i % 3) * 0.06) + 's');
-      fig.tabIndex = 0;
-      fig.setAttribute('role', 'button');
-      fig.setAttribute('aria-label', 'Open: ' + g.caption);
-      fig.setAttribute('data-cat', g.cat);
-      fig.innerHTML = '<img src="' + g.src + '" alt="' + g.caption.replace(/"/g, '&quot;') + '" loading="lazy" width="' + g.w + '" height="' + g.h + '">' +
-        (g.video ? '<span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>' : '') +
-        '<figcaption>' + g.caption + '</figcaption>';
-      fig._g = g;
-      gal.appendChild(fig);
-    });
-    function applyFilter(f) {
-      $$('.gi', gal).forEach(function (el) {
-        el.hidden = !(f === 'all' || el.getAttribute('data-cat') === f);
-        el.classList.add('in');
-      });
+  /* ---------------- lightbox (shared) ---------------- */
+  var lb = $('#lightbox'), lbm = $('#lbMedia'), lbc = $('#lbCap'), lbItems = [], li = 0, lastFocus = null;
+  function lbShow() {
+    var g = lbItems[li];
+    lbm.innerHTML = g.video
+      ? '<video src="' + g.video + '" poster="' + g.src + '" controls autoplay playsinline></video>'
+      : '<img src="' + g.src + '" alt="' + esc(g.caption || '') + '">';
+    lbc.textContent = (g.caption || '') + (lbItems.length > 1 ? '  ·  ' + (li + 1) + ' / ' + lbItems.length : '');
+    $('.lb-prev', lb).hidden = $('.lb-next', lb).hidden = lbItems.length < 2;
+  }
+  function openLightbox(items, i) {
+    lbItems = items; li = i || 0;
+    lbShow();
+    if (!lb.classList.contains('open')) {
+      lastFocus = document.activeElement;
+      lb.classList.add('open');
+      document.documentElement.classList.add('lb-open');
+      $('.lb-close', lb).focus();
     }
+  }
+  function closeLB() {
+    lb.classList.remove('open');
+    lbm.innerHTML = '';
+    document.documentElement.classList.remove('lb-open');
+    if (lastFocus) lastFocus.focus();
+  }
+  function lbStep(d) { li = (li + d + lbItems.length) % lbItems.length; lbShow(); }
+  $('.lb-close', lb).addEventListener('click', closeLB);
+  $('.lb-prev', lb).addEventListener('click', function () { lbStep(-1); });
+  $('.lb-next', lb).addEventListener('click', function () { lbStep(1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLB(); });
+
+  function tileHTML(g, i) {
+    return '<figure class="gi" tabindex="0" role="button" data-i="' + i + '" aria-label="Open: ' + esc(g.caption) + '">' +
+      '<img src="' + g.src + '" alt="' + esc(g.caption) + '" loading="lazy" width="' + g.w + '" height="' + g.h + '">' +
+      (g.video ? '<span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>' : '') +
+      '<figcaption>' + esc(g.caption) + '</figcaption></figure>';
+  }
+  function bindTiles(root, getItems) {
+    root.addEventListener('click', function (e) {
+      var f = e.target.closest('.gi');
+      if (f) openLightbox(getItems(), +f.getAttribute('data-i'));
+    });
+    root.addEventListener('keydown', function (e) {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('gi')) {
+        e.preventDefault();
+        openLightbox(getItems(), +e.target.getAttribute('data-i'));
+      }
+    });
+  }
+
+  /* ---------------- gallery (built from every activity's photos) ---------------- */
+  var GROUPS = { ventures: 'Ventures', community: 'Community', internships: 'Internships', life: 'Life' };
+  var galItems = [];
+  ACTS.forEach(function (a) {
+    a.media.forEach(function (m) {
+      if (m.shot) return;
+      galItems.push({ src: m.src, video: m.video, w: m.w, h: m.h, group: a.group, caption: a.title + ': ' + m.caption });
+    });
+  });
+  (DATA.GALLERY_EXTRA || []).forEach(function (m) { galItems.push(m); });
+  var gal = $('#galGrid'), gf = $('#galFilter'), galShown = galItems.slice();
+  function renderGal(f) {
+    galShown = galItems.filter(function (g) { return f === 'all' || g.group === f; });
+    gal.innerHTML = galShown.map(tileHTML).join('');
+  }
+  if (gal) {
+    var counts = {};
+    galItems.forEach(function (g) { counts[g.group] = (counts[g.group] || 0) + 1; });
+    var fl = [['all', 'Everything', galItems.length]];
+    Object.keys(GROUPS).forEach(function (k) { if (counts[k]) fl.push([k, GROUPS[k], counts[k]]); });
+    gf.innerHTML = fl.map(function (f, i) { return '<button type="button" data-f="' + f[0] + '" aria-pressed="' + (i === 0) + '">' + f[1] + ' <span class="mono" style="opacity:.6">' + f[2] + '</span></button>'; }).join('');
     gf.addEventListener('click', function (e) {
       var b = e.target.closest('button');
       if (!b) return;
       $$('button', gf).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
-      applyFilter(b.getAttribute('data-f'));
+      renderGal(b.getAttribute('data-f'));
     });
+    renderGal('all');
+    bindTiles(gal, function () { return galShown; });
+  }
 
-    var lb = $('#lightbox'), lbm = $('#lbMedia'), lbc = $('#lbCap'), li = 0, lastFocus = null;
-    function openLB(i) {
-      shown = $$('.gi', gal).filter(function (el) { return !el.hidden; });
-      li = i;
-      var g = shown[li]._g;
-      lbm.innerHTML = g.video
-        ? '<video src="' + g.video + '" poster="' + g.src + '" controls autoplay playsinline></video>'
-        : '<img src="' + g.src + '" alt="' + g.caption.replace(/"/g, '&quot;') + '">';
-      lbc.textContent = g.caption;
-      if (!lb.classList.contains('open')) {
-        lastFocus = document.activeElement;
-        lb.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        $('.lb-close', lb).focus();
-      }
-    }
-    function closeLB() {
-      lb.classList.remove('open');
-      lbm.innerHTML = '';
-      document.body.style.overflow = '';
-      if (lastFocus) lastFocus.focus();
-    }
-    function step(d) { openLB((li + d + shown.length) % shown.length); }
-    gal.addEventListener('click', function (e) {
-      var f = e.target.closest('.gi');
-      if (!f) return;
-      var vis = $$('.gi', gal).filter(function (el) { return !el.hidden; });
-      openLB(vis.indexOf(f));
-    });
-    gal.addEventListener('keydown', function (e) {
-      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('gi')) {
-        e.preventDefault();
-        var vis = $$('.gi', gal).filter(function (el) { return !el.hidden; });
-        openLB(vis.indexOf(e.target));
-      }
-    });
-    $('.lb-close', lb).addEventListener('click', closeLB);
-    $('.lb-prev', lb).addEventListener('click', function () { step(-1); });
-    $('.lb-next', lb).addEventListener('click', function () { step(1); });
-    lb.addEventListener('click', function (e) { if (e.target === lb) closeLB(); });
-    addEventListener('keydown', function (e) {
-      if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLB();
-      if (e.key === 'ArrowLeft') step(-1);
-      if (e.key === 'ArrowRight') step(1);
+  /* ---------------- certificates ---------------- */
+  var certs = $('#certs');
+  if (certs) {
+    certs.innerHTML = DATA.CERTS.map(function (c, i) {
+      var cover = c.img
+        ? '<div class="cv"><img src="' + c.img + '" alt="' + esc(c.title) + ' certificate" loading="lazy"></div>'
+        : '<div class="cv plaque"><div class="frame"><svg><use href="#g-' + c.icon + '"/></svg><small>' + esc(c.year) + '</small></div></div>';
+      var inner = cover + '<div class="ct"><span>' + esc(c.year) + '</span><h4>' + esc(c.title) + '</h4><p>' + esc(c.issuer) + '</p></div>';
+      if (c.file) return '<a class="cert rv" style="--d:' + (i % 4) * 0.06 + 's" href="' + c.file + '" target="_blank" rel="noopener">' + inner + '</a>';
+      if (c.img) return '<button type="button" class="cert rv" style="--d:' + (i % 4) * 0.06 + 's" data-cert="' + i + '">' + inner + '</button>';
+      return '<div class="cert rv" style="--d:' + (i % 4) * 0.06 + 's">' + inner + '</div>';
+    }).join('');
+    certs.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-cert]');
+      if (!b) return;
+      var c = DATA.CERTS[+b.getAttribute('data-cert')];
+      openLightbox([{ src: c.img, caption: c.title + ' · ' + c.issuer }], 0);
     });
   }
+  var awardItems = [
+    { src: 'assets/media/ep-team.webp', caption: 'The EarthPulse team behind the award' },
+    { src: 'assets/media/ep-ib-award.webp', caption: 'IB Global Youth Action Fund 2026 winner announcement for EarthPulse' },
+    { src: 'assets/media/ep-festival-of-hope.webp', caption: 'EarthPulse on IB’s Festival of Hope, Youth in Action' }
+  ];
+  $$('[data-lb="award"]').forEach(function (b) {
+    b.addEventListener('click', function () { openLightbox(awardItems, +b.getAttribute('data-i')); });
+  });
+
+  /* ---------------- activities reel ---------------- */
+  function glyph(a) {
+    return a.glyph === 'mark'
+      ? '<svg class="act-glyph" viewBox="0 0 66 64" aria-hidden="true"><use href="#mark"/></svg>'
+      : '<svg class="act-glyph" viewBox="0 0 24 24" aria-hidden="true"><use href="#g-' + a.glyph + '"/></svg>';
+  }
+  var pad2 = function (n) { return (n < 10 ? '0' : '') + n; };
+  var track = $('#reelTrack'), reelSec = $('#ventures'), reelIndex = $('#reelIndex');
+  var cards = [];
+  if (track) {
+    track.innerHTML = ACTS.map(function (a, i) {
+      var photos = a.media.filter(function (m) { return !m.shot; }).length;
+      return '<button type="button" class="act' + (a.cover ? ' has-img' : '') + '" data-tone="' + a.tone + '" data-act="' + i + '" aria-label="Open ' + esc(a.title) + '">' +
+        '<span class="act-cover">' + (a.cover ? '<img src="' + a.cover + '" alt="" loading="lazy">' : glyph(a)) + '</span>' +
+        '<span class="act-no">' + pad2(i + 1) + '</span><span class="act-kind">' + esc(a.kind) + '</span>' +
+        '<span class="act-body"><span class="act-t">' + esc(a.title) + '</span><span class="act-role">' + esc(a.role) + ' · ' + esc(a.when) + '</span>' +
+        '<span class="act-open">Open' + (photos ? '<span class="act-media-n">' + photos + ' photo' + (photos > 1 ? 's' : '') + '</span>' : '') + ' →</span></span></button>';
+    }).join('');
+    cards = $$('.act', track);
+    $('#reelAll').textContent = pad2(ACTS.length);
+    reelIndex.innerHTML = ACTS.map(function (a, i) { return '<button type="button" role="listitem" data-go="' + i + '">' + esc(a.title) + '</button>'; }).join('');
+    var idxBtns = $$('button', reelIndex);
+
+    var pinned = function () { return innerWidth > 760; };
+    var maxX = 0, cardW = 0, gap = 28, lefts = [];
+    function layout() {
+      if (!pinned()) { reelSec.style.height = ''; track.style.paddingLeft = track.style.paddingRight = ''; return; }
+      cardW = cards[0].offsetWidth;
+      var side = (innerWidth - cardW) / 2;
+      track.style.paddingLeft = track.style.paddingRight = side + 'px';
+      lefts = cards.map(function (c) { return c.offsetLeft; });
+      maxX = track.scrollWidth - innerWidth;
+      reelSec.style.height = (maxX + innerHeight * 1.15) + 'px';
+      paintReel();
+    }
+    var curIdx = -1;
+    function setCur(i) {
+      if (i === curIdx) return;
+      curIdx = i;
+      $('#reelNow').textContent = pad2(i + 1);
+      idxBtns.forEach(function (b, k) { b.classList.toggle('on', k === i); });
+      var ib = idxBtns[i];
+      if (ib) reelIndex.scrollTo({ left: ib.offsetLeft - reelIndex.clientWidth / 2 + ib.offsetWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    function paintReel() {
+      if (!pinned()) return;
+      var top = reelSec.offsetTop, span = reelSec.offsetHeight - innerHeight;
+      var p = Math.max(0, Math.min(1, (scrollY - top) / span));
+      var x = p * maxX;
+      track.style.transform = 'translate3d(' + (-x).toFixed(1) + 'px,0,0)';
+      $('#reelBar').style.width = (p * 100) + '%';
+      var mid = innerWidth / 2, best = 0, bestD = 1e9;
+      cards.forEach(function (c, i) {
+        var cx = lefts[i] - x + cardW / 2;
+        var d = (cx - mid) / (innerWidth / 2);
+        var ad = Math.min(Math.abs(d), 1.4);
+        if (Math.abs(d) < bestD) { bestD = Math.abs(d); best = i; }
+        if (reduce) return;
+        var ry = Math.max(-1, Math.min(1, d)) * -24;
+        c.style.transform = 'translateZ(' + (-ad * 160).toFixed(1) + 'px) rotateY(' + ry.toFixed(2) + 'deg)';
+        c.style.filter = 'brightness(' + (1 - ad * 0.35).toFixed(3) + ')';
+        c.style.zIndex = String(100 - Math.round(ad * 50));
+      });
+      setCur(best);
+    }
+    function scrollToCard(i) {
+      if (!pinned()) { cards[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', inline: 'center', block: 'nearest' }); return; }
+      var target = reelSec.offsetTop + (lefts[i] - lefts[0]) / maxX * (reelSec.offsetHeight - innerHeight);
+      scrollTo({ top: target, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    reelIndex.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-go]');
+      if (b) scrollToCard(+b.getAttribute('data-go'));
+    });
+    cards.forEach(function (c, i) {
+      c.addEventListener('focus', function () { if (pinned() && Math.abs(i - curIdx) > 0) scrollToCard(i); });
+      c.addEventListener('click', function () { openActivity(i, c); });
+    });
+    // mobile: highlight the card nearest the centre of the swipe row
+    $('.reel-viewport').addEventListener('scroll', function () {
+      if (pinned()) return;
+      var vp = this, mid = vp.scrollLeft + vp.clientWidth / 2, best = 0, bd = 1e9;
+      cards.forEach(function (c, i) { var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < bd) { bd = d; best = i; } });
+      setCur(best);
+      $('#reelBar').style.width = (vp.scrollLeft / (vp.scrollWidth - vp.clientWidth) * 100) + '%';
+    }, { passive: true });
+    addEventListener('scroll', paintReel, { passive: true });
+    addEventListener('resize', layout);
+    addEventListener('load', layout);
+    document.addEventListener('site:ready', layout);
+    layout();
+  }
+
+  /* ---------------- activity pages ---------------- */
+  var modal = $('#actModal'), amScroll = $('#amScroll'), amIdx = 0, amOrigin = null;
+  function list(title, items, cls) {
+    if (!items || !items.length) return '';
+    return '<section class="' + (cls || '') + '"><h4>' + title + '</h4><ul>' + items.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul></section>';
+  }
+  function renderActivity(i) {
+    var a = ACTS[i], prev = ACTS[(i - 1 + ACTS.length) % ACTS.length], next = ACTS[(i + 1) % ACTS.length];
+    var media = a.media;
+    var photos = media.filter(function (m) { return !m.shot; }).length;
+    amScroll.innerHTML =
+      '<header class="am-hero' + (a.cover ? ' has-img' : '') + '" style="--tone-bg:' + toneBg(a.tone) + ';--tone-fg:' + toneFg(a.tone) + '">' +
+        (a.cover ? '<img class="am-cover" src="' + a.cover + '" alt="">' : glyph(a)) +
+        '<div class="am-hero-copy"><div class="wrap"><span class="label">' + esc(a.kind) + ' · ' + esc(a.when) + '</span><h2 id="amTitle">' + esc(a.title) + '</h2><p>' + esc(a.lead) + '</p></div></div>' +
+      '</header>' +
+      '<div class="wrap am-main">' +
+        '<aside class="am-side"><dl>' +
+          '<div><dt>Role</dt><dd>' + esc(a.role) + '</dd></div>' +
+          '<div><dt>When</dt><dd>' + esc(a.when) + '</dd></div>' +
+          '<div><dt>Where</dt><dd>' + esc(a.where) + '</dd></div>' +
+          '<div><dt>Status</dt><dd><span class="st ' + a.status[0] + '">' + esc(a.status[1]) + '</span></dd></div>' +
+        '</dl>' +
+        (a.links.length ? '<div class="am-links">' + a.links.map(function (l) { return '<a href="' + l[1] + '" target="_blank" rel="noopener">' + esc(l[0]) + '<span>↗</span></a>'; }).join('') + '</div>' : '') +
+        '</aside>' +
+        '<div class="am-content">' + a.body.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') +
+          '<div class="am-cols">' + list('What I did', a.did) + list('Completed', a.done, 'c-done') + list('Intended, not yet delivered', a.intended, 'c-int') + '</div>' +
+          '<div class="am-media-head"><h3>Photos &amp; videos</h3><span class="label">' + (media.length ? media.length + ' item' + (media.length > 1 ? 's' : '') : '') + '</span></div>' +
+          (media.length ? '<div class="am-media">' + media.map(tileHTML).join('') + '</div>'
+            : '<div class="am-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 16l-5-5-9 8"/></svg>Photos from ' + esc(a.title) + ' are on their way.</div>') +
+          '<nav class="am-next" aria-label="More activities"><button type="button" data-step="-1"><span>← Previous</span><b>' + esc(prev.title) + '</b></button><button type="button" data-step="1"><span>Next →</span><b>' + esc(next.title) + '</b></button></nav>' +
+        '</div>' +
+      '</div>';
+    $('#amCount').textContent = pad2(i + 1) + ' / ' + pad2(ACTS.length);
+    amScroll.scrollTop = 0;
+    var mediaEl = $('.am-media', amScroll);
+    if (mediaEl) bindTiles(mediaEl, function () { return media; });
+  }
+  function toneBg(t) { return { paper: '#f3f0e8', ember: '#ff5a1f', moss: '#24533e', ink: '#22262a' }[t] || '#22262a'; }
+  function toneFg(t) { return (t === 'paper' || t === 'ember') ? '#0f1110' : '#f3f0e8'; }
+
+  var vt = !!document.startViewTransition && !reduce;
+  function openActivity(i, originCard) {
+    amIdx = i;
+    amOrigin = originCard || null;
+    var show = function () {
+      renderActivity(i);
+      modal.hidden = false;
+      document.documentElement.classList.add('am-open');
+      if (history.replaceState) history.replaceState(null, '', '#activity/' + ACTS[i].id);
+    };
+    var coverEl = originCard && $('.act-cover', originCard);
+    if (vt && coverEl && modal.hidden) {
+      coverEl.style.viewTransitionName = 'act-cover';
+      var t = document.startViewTransition(function () {
+        coverEl.style.viewTransitionName = '';
+        show();
+        var hero = $('.am-hero', amScroll);
+        if (hero) hero.style.viewTransitionName = 'act-cover';
+      });
+      t.finished.then(function () { var hero = $('.am-hero', amScroll); if (hero) hero.style.viewTransitionName = ''; $('#amClose').focus(); });
+    } else {
+      var wasHidden = modal.hidden;
+      show();
+      if (wasHidden && !reduce) { modal.classList.remove('anim-out'); modal.classList.add('anim-in'); }
+      $('#amClose').focus();
+    }
+  }
+  function closeActivity() {
+    if (modal.hidden) return;
+    var done = function () {
+      modal.hidden = true;
+      modal.classList.remove('anim-in', 'anim-out');
+      document.documentElement.classList.remove('am-open');
+      if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+    };
+    var card = cards[amIdx], coverEl = card && $('.act-cover', card), hero = $('.am-hero', amScroll);
+    if (vt && coverEl && hero && innerWidth > 760) {
+      hero.style.viewTransitionName = 'act-cover';
+      var t = document.startViewTransition(function () {
+        hero.style.viewTransitionName = '';
+        done();
+        coverEl.style.viewTransitionName = 'act-cover';
+      });
+      t.finished.then(function () { coverEl.style.viewTransitionName = ''; card.focus({ preventScroll: true }); });
+    } else if (!reduce) {
+      modal.classList.remove('anim-in'); modal.classList.add('anim-out');
+      setTimeout(done, 380);
+      if (card) card.focus({ preventScroll: true });
+    } else { done(); }
+  }
+  function stepActivity(d) { openActivity((amIdx + d + ACTS.length) % ACTS.length); }
+  if (modal) {
+    $('#amClose').addEventListener('click', closeActivity);
+    $('#amPrev').addEventListener('click', function () { stepActivity(-1); });
+    $('#amNext').addEventListener('click', function () { stepActivity(1); });
+    amScroll.addEventListener('scroll', function () {
+      var h = $('.am-hero', amScroll);
+      $('.am-bar', modal).classList.toggle('solid', !!h && amScroll.scrollTop > h.offsetHeight - 70);
+    }, { passive: true });
+    amScroll.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-step]');
+      if (b) stepActivity(+b.getAttribute('data-step'));
+    });
+  }
+  $$('[data-open-activity]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var i = ACTS.findIndex(function (a) { return a.id === b.getAttribute('data-open-activity'); });
+      if (i > -1) openActivity(i, null);
+    });
+  });
+  // deep link: #activity/earthpulse
+  var m = location.hash.match(/^#activity\/(.+)$/);
+  if (m) {
+    var di = ACTS.findIndex(function (a) { return a.id === m[1]; });
+    if (di > -1) document.addEventListener('site:ready', function () { openActivity(di, null); });
+  }
+
+  addEventListener('keydown', function (e) {
+    if (lb.classList.contains('open')) {
+      if (e.key === 'Escape') closeLB();
+      if (e.key === 'ArrowLeft') lbStep(-1);
+      if (e.key === 'ArrowRight') lbStep(1);
+      return;
+    }
+    if (modal && !modal.hidden) {
+      if (e.key === 'Escape') closeActivity();
+      if (e.key === 'ArrowLeft') stepActivity(-1);
+      if (e.key === 'ArrowRight') stepActivity(1);
+    }
+  });
+
+  /* ---------------- footer: clock + copy email ---------------- */
+  var clock = $('#clock');
+  if (clock) {
+    var tick = function () {
+      try { clock.textContent = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Africa/Nairobi' }).format(new Date()); } catch (e) { }
+    };
+    tick(); setInterval(tick, 20000);
+  }
+  var cm = $('#copyMail');
+  if (cm) cm.addEventListener('click', function () {
+    var i = $('i', cm);
+    (navigator.clipboard ? navigator.clipboard.writeText(cm.getAttribute('data-mail')) : Promise.reject()).then(function () {
+      i.textContent = 'Copied';
+    }, function () { location.href = 'mailto:' + cm.getAttribute('data-mail'); }).then(function () { setTimeout(function () { i.textContent = 'Copy'; }, 1800); });
+  });
 
   var yr = $('#yr');
   if (yr) yr.textContent = new Date().getFullYear();
