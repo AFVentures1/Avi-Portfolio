@@ -68,18 +68,11 @@ window.SITE_DATA = (function () {
       links: [['Visit earthpulse.africa', 'https://earthpulse.africa'], ['EarthPulse on IB’s Festival of Hope', 'https://ibo.org/festival-of-hope/youth-in-action/earthpulse---waste-to-worth?contentId=207695'], ['AKDN partnership proposal (PDF)', 'https://earthpulse.africa/documents/earthpulse-akdn-partnership-proposal.pdf']],
       media: [
         { src: M + 'ep-team.webp', w: 1080, h: 1080, caption: 'The EarthPulse team and their roles' },
-        { src: M + 'ep-ib-award.webp', w: 900, h: 1600, caption: 'IB Global Youth Action Fund 2026 winner announcement for EarthPulse' },
-        { src: M + 'earthpulse-60s.webp', video: M + 'earthpulse-60s.mp4', w: 464, h: 832, caption: 'EarthPulse in 60 seconds' },
         { src: I + 'g-aerobin.webp', w: 1600, h: 918, caption: 'Students and staff beside the Aerobin composter we installed at school' },
         { src: I + 'g-classroom.webp', w: 812, h: 600, caption: 'Leading a session with students in a classroom' },
         { src: I + 'g-fingerprint-tree.webp', w: 1600, h: 1200, caption: 'Students around our fingerprint tree poster on campus' },
         { src: M + 'twister.webp', video: M + 'twister.mp4', w: 960, h: 540, caption: 'A game of Twister during an awareness activity' },
-        { src: M + 'ep-festival-of-hope.webp', w: 1600, h: 713, caption: 'EarthPulse listed on IB’s Festival of Hope, Youth in Action (screenshot)', shot: true },
-        { src: M + 'ep-yygs-presentation.webp', w: 1242, h: 655, caption: 'EarthPulse presented at Yale Young Global Scholars 2026 (team recognition)' },
-        { src: M + 'ep-yygs-group.webp', w: 1280, h: 853, caption: 'Yale Young Global Scholars 2026 cohort (team recognition)' },
-        { src: M + 'ep-gci.webp', w: 1074, h: 602, caption: 'Global Citizen Initiative programme update featuring participant presentations' },
-        { src: M + 'ep-icla-greeting.webp', w: 1280, h: 850, caption: 'EarthPulse with I Choose Life Africa: greeting the chief guest' },
-        { src: M + 'ep-icla-planting.webp', w: 864, h: 1152, caption: 'EarthPulse with I Choose Life Africa: a seedling at a clean-up site' }
+        { src: M + 'ep-festival-of-hope.webp', w: 1600, h: 713, caption: 'EarthPulse listed on IB’s Festival of Hope, Youth in Action (screenshot)', shot: true }
       ]
     },
     {
