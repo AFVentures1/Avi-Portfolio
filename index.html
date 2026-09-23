@@ -2,392 +2,741 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Avi Dharani — Founder & Investor</title>
-<meta name="description" content="Entrepreneur and aspiring private equity professional building AI-powered digital infrastructure across East and Central Africa. Founder of A&F Ventures." />
-<meta property="og:title" content="Avi Dharani — Founder & Investor" />
-<meta property="og:description" content="Founder of A&F Ventures. Building AI-powered digital systems for businesses across East and Central Africa." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Avi Dharani · Builder, founder, student</title>
+<meta name="description" content="Avi Dharani is an IB Diploma student in Mombasa, Kenya, building businesses and digital tools with the community around them: A&amp;F Ventures, Fuel2Save, EarthPulse, BINMAN and Youth Enterprise Catalyst." />
+<meta name="theme-color" content="#0f1110" />
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
-<meta name="theme-color" content="#f6f4ee" />
+<meta property="og:title" content="Avi Dharani · Builder, founder, student" />
+<meta property="og:description" content="Businesses, digital tools and community projects from Mombasa, Kenya." />
+<meta property="og:url" content="https://avi-dharani.vercel.app/" />
+<meta property="og:image" content="https://avi-dharani.vercel.app/assets/brand/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
+<body class="is-loading">
 
-<div class="progress" id="progress"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 66 64">
+    <path fill="currentColor" d="M21 10H28.5L14.5 54H7Z" />
+    <path fill="currentColor" d="M17 36H25V42H17Z" />
+    <path fill="currentColor" fill-rule="evenodd" d="M24 10H32C45.3 10 56 19.8 56 32S45.3 54 32 54H24ZM31 17V47H32C41.4 47 49 40.3 49 32S41.4 17 32 17Z" />
+  </symbol>
+</svg>
+
+<div id="loader" aria-hidden="true">
+  <svg class="lm" viewBox="0 0 66 64"><path d="M21 10H28.5L14.5 54H7Z" /><path d="M17 36H25V42H17Z" /><path fill-rule="evenodd" d="M24 10H32C45.3 10 56 19.8 56 32S45.3 54 32 54H24ZM31 17V47H32C41.4 47 49 40.3 49 32S41.4 17 32 17Z" /><rect x="57.5" y="47" width="7" height="7" fill="#ff5a1f" /></svg>
+</div>
 
 <header class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="brand" id="brand">
-      <img class="brand-logo" id="brandLogo" src="assets/logo.png" alt="Avi Dharani" />
-      <span class="brand-mark">AD</span>
-      <span class="brand-name">Avi Dharani</span>
-    </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#ventures">Ventures</a>
-      <a href="#work">Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#resume">Résumé</a>
-      <a href="#contact" class="nav-cta">Get in touch</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <div class="wrap">
+    <div class="nav-bar">
+      <a href="#top" class="brand" aria-label="Avi Dharani, back to top">
+        <svg class="mark" viewBox="0 0 66 64" aria-hidden="true"><use href="#mark" /><rect class="dot" x="57.5" y="47" width="7" height="7" fill="#ff5a1f" /></svg>
+        <span>Avi Dharani</span>
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#ventures">Ventures</a>
+        <a href="#work">Work</a>
+        <a href="#impact">Impact</a>
+        <a href="#experience">Experience</a>
+        <a href="#documents">Documents</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact" class="btn btn-ember nav-cta">Get in touch</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><i></i><i></i></button>
+    </div>
   </div>
 </header>
 
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="#about">About <span>01</span></a>
+    <a href="#ventures">Ventures <span>03</span></a>
+    <a href="#work">Work <span>04</span></a>
+    <a href="#impact">Impact <span>05</span></a>
+    <a href="#experience">Experience <span>06</span></a>
+    <a href="#documents">Documents <span>07</span></a>
+    <a href="#gallery">Gallery <span>09</span></a>
+    <a href="#contact">Contact <span>10</span></a>
+  </nav>
+  <div class="mm-foot"><a href="mailto:avidharani110@gmail.com">avidharani110@gmail.com</a><span>Mombasa, Kenya</span></div>
+</div>
+
 <main id="top">
 
-  <section class="hero" id="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <span class="blob blob-a"></span>
-      <span class="blob blob-b"></span>
-      <span class="grid-fade"></span>
-    </div>
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow reveal"><span class="dot"></span> Hello — I'm based in Mombasa, Kenya</p>
-        <h1 class="hero-title">
-          <span class="line"><span>Avi</span></span>
-          <span class="line"><span>Dharani.</span></span>
-        </h1>
-        <p class="hero-role reveal">I'm a <span class="rotator" id="rotator">founder</span></p>
-        <p class="hero-tagline reveal">I build AI-powered digital systems for businesses across East and Central Africa — and I'm training to be a <span class="hl">private equity investor</span> along the way.</p>
-        <div class="hero-actions reveal">
-          <a href="#ventures" class="btn btn-primary">View my work <i class="arr">&rarr;</i></a>
-          <a href="#contact" class="btn btn-ghost">Get in touch</a>
-        </div>
-        <ul class="hero-social reveal">
-          <li><a href="https://www.linkedin.com/in/avi-dharani-b0a837292/" target="_blank" rel="noopener">LinkedIn &nearr;</a></li>
-          <li><a href="https://digital-growth-partner-azure.vercel.app/" target="_blank" rel="noopener">A&amp;F Ventures &nearr;</a></li>
-          <li><a href="mailto:avidharani110@gmail.com">Email &nearr;</a></li>
-        </ul>
-      </div>
-      <div class="hero-photo">
-        <div class="photo-frame">
-          <span class="ring ring-1"></span>
-          <span class="ring ring-2"></span>
-          <img class="asset headshot" src="assets/headshot.jpg" alt="Avi Dharani" />
-          <div class="photo-placeholder">
-            <span class="ph-mono">AD</span>
-            <span class="ph-hint">Drop <code>headshot.jpg</code> into <code>/assets</code></span>
-          </div>
-        </div>
+<!-- ============================== HERO ============================== -->
+<section class="hero" aria-label="Introduction">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-kicker mono rv"><span class="live">Mombasa, Kenya</span><span>IB Diploma · Class of 2027</span></p>
+      <h1 class="hero-name fx" data-radius="260">Avi<br />Dharani<span class="dot">.</span></h1>
+      <p class="hero-role rv" style="--d:.5s"><span class="label">Currently</span>
+        <span class="rot" id="rot">
+          <span class="on">Co-founder, <em>A&amp;F Ventures</em></span>
+          <span>Managing Director, <em>EarthPulse</em></span>
+          <span>Building <em>Fuel2Save</em></span>
+          <span>Founder, <em>Youth Enterprise Catalyst</em></span>
+        </span>
+      </p>
+      <p class="hero-lead rv" style="--d:.6s">I build businesses and digital tools with the people around me: <b>ordering websites for local restaurants</b>, <b>weekly finance sessions for students</b> and <b>a composting programme at school</b>. I care about making useful opportunities easier to reach.</p>
+      <div class="hero-cta rv" style="--d:.7s">
+        <a href="#work" class="btn btn-ember">See what I've built <span class="arr">→</span></a>
+        <a href="#impact" class="btn btn-ghost">My impact <span class="arr">→</span></a>
       </div>
     </div>
-    <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
-  </section>
-
-  <section class="quicktiles" aria-label="Quick links">
-    <a class="qtile reveal" href="#ventures">
-      <span class="qt-ico">◆</span>
-      <div><h3>My ventures</h3><p>Businesses and projects I've built and led.</p></div>
-      <span class="qt-arr">&rarr;</span>
-    </a>
-    <a class="qtile reveal" href="#work">
-      <span class="qt-ico">▦</span>
-      <div><h3>Client work</h3><p>Digital systems delivered through A&amp;F Ventures.</p></div>
-      <span class="qt-arr">&rarr;</span>
-    </a>
-    <a class="qtile reveal" href="#contact">
-      <span class="qt-ico">✳</span>
-      <div><h3>Get in touch</h3><p>If you like what you see, let's talk.</p></div>
-      <span class="qt-arr">&rarr;</span>
-    </a>
-  </section>
-
-  <section class="section about" id="about">
-    <div class="section-head">
-      <p class="section-kicker reveal">01 — About</p>
-      <h2 class="section-title reveal">Builder first. Investor in the making.</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-lead reveal">
-        <p>I'm an entrepreneur based in Mombasa with ventures spanning AI consultancy, sustainability, and retail across East and Central Africa. I've raised early-stage capital, secured paying clients, and built financial systems from the ground up.</p>
-        <p>I like taking an idea from zero to something real — finding the money, the clients, and the systems to make it stand on its own. My goal is a career in private equity and investing.</p>
-        <figure class="about-figure">
-          <div class="about-media">
-            <img class="asset" src="assets/about.jpg" alt="Avi with the A&F team" />
-            <div class="about-ph"><span>Add about.jpg</span><small>a candid / team photo</small></div>
-          </div>
-          <figcaption>A working session with the A&amp;F team in Mombasa.</figcaption>
-        </figure>
+    <div class="hero-visual rv" style="--d:.3s">
+      <div id="globe" aria-label="An interactive globe marking the places I have worked: Mombasa, Nairobi, Kinshasa, Kyrgyzstan and remotely with Afghanistan" role="img"></div>
+      <div class="portrait-chip">
+        <img src="assets/img/portrait.webp" alt="Portrait of Avi Dharani" width="46" height="46" />
+        <div><b>Avi Dharani</b><span>Student · Founder · Builder</span></div>
       </div>
-      <ul class="stats">
-        <li class="stat reveal"><span class="stat-num" data-count="5" data-suffix="+">0</span><span class="stat-label">Ventures founded or led</span></li>
-        <li class="stat reveal"><span class="stat-num" data-count="3">0</span><span class="stat-label">Client businesses delivered</span></li>
-        <li class="stat reveal"><span class="stat-num" data-prefix="$" data-count="10" data-suffix="K+">0</span><span class="stat-label">Revenue generated</span></li>
-        <li class="stat reveal"><span class="stat-num" data-count="5">0</span><span class="stat-label">Languages spoken</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>AI Automation</span><span>&bull;</span><span>Digital Infrastructure</span><span>&bull;</span><span>Private Equity</span><span>&bull;</span><span>Web Development</span><span>&bull;</span><span>CRM &amp; Analytics</span><span>&bull;</span><span>Sustainability</span><span>&bull;</span>
-      <span>AI Automation</span><span>&bull;</span><span>Digital Infrastructure</span><span>&bull;</span><span>Private Equity</span><span>&bull;</span><span>Web Development</span><span>&bull;</span><span>CRM &amp; Analytics</span><span>&bull;</span><span>Sustainability</span><span>&bull;</span>
+      <p class="globe-hint">Drag to spin ⟲</p>
     </div>
   </div>
-
-  <section class="section ventures" id="ventures">
-    <div class="section-head">
-      <p class="section-kicker reveal">02 — Ventures &amp; Projects</p>
-      <h2 class="section-title reveal">Things I've built and led.</h2>
+  <div class="hero-facts">
+    <div class="wrap">
+      <ul>
+        <li class="rv" style="--d:.8s"><b><small>USD</small><span data-count="2500">2,500</span></b><span>IB Global Youth Action Fund grant, awarded to our EarthPulse team</span></li>
+        <li class="rv" style="--d:.9s"><b>~<span data-count="50">50</span></b><span>young chess players coached across four summers in Kinshasa</span></li>
+        <li class="rv" style="--d:1s"><b><small>KES</small><span data-count="180000">180,000</span></b><span>in sales from the four-stall Zawadi Bazaar operation I co-led</span></li>
+        <li class="rv" style="--d:1.1s"><b><span data-count="5">5</span></b><span>languages: English, French, Gujarati, Hindi and some Lingala</span></li>
+      </ul>
     </div>
-    <div class="ventures-grid">
+  </div>
+</section>
 
-      <article class="vcard flagship reveal">
-        <div class="vcard-top">
-          <span class="tag tag-gold">Flagship</span>
-          <span class="vcard-year">2025 — Present</span>
+<!-- ============================== ABOUT ============================== -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="idx rv"><b>01</b><i></i><span class="label">About</span></p>
+        <h2 class="h2 fx">I like turning a <em>practical problem</em> into something that works.</h2>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p class="bio" id="bio">I'm Avi, an IB Diploma student in Mombasa whose work spans Kenya and the Democratic Republic of Congo. I co-founded <span class="hl">A&amp;F Ventures</span>, which builds ordering websites and digital tools for local businesses. I'm Managing Director of <span class="hl">EarthPulse</span>, a student initiative on food-waste education and composting, and I run <span class="hl">YEC</span>, weekly sessions on money and enterprise for students at school.</p>
+        <p class="bio-2 rv">What connects it all is a habit: notice a problem people live with, work out who it affects, then build something small enough to actually finish. Running the finances of a chess academy, selling at a school bazaar and building websites for paying clients taught me to handle budgets, talk to customers and sponsors, and make things other people rely on. I'm most interested in where business, finance and technology meet, and I've recently become curious about private equity as a way to back businesses that matter.</p>
+        <ol class="principles rv">
+          <li><b>01</b>Notice the problem people actually live with</li>
+          <li><b>02</b>Build the simplest thing that genuinely helps</li>
+          <li><b>03</b>Be honest about results, and keep improving</li>
+        </ol>
+      </div>
+      <figure class="about-photo rv">
+        <div class="ph"><img src="assets/img/af-team.webp" alt="Avi working at a laptop with the A&amp;F Ventures team around a table" loading="lazy" width="768" height="1024" /></div>
+        <div class="sticker" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><defs><path id="circ" d="M50 50m-37 0a37 37 0 1 1 74 0a37 37 0 1 1-74 0" /></defs><text font-family="JetBrains Mono" font-size="8.6" letter-spacing="2.4" fill="#fff"><textPath href="#circ">BUILD · LEARN · SHARE · REPEAT · </textPath></text></svg>
+          <span>✺</span>
         </div>
+        <figcaption>Working through a client build with the A&amp;F team.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track">
+  <span>Business</span><span>Technology</span><span>Finance</span><span>Sustainability</span><span>Community</span><span>Enterprise</span>
+  <span>Business</span><span>Technology</span><span>Finance</span><span>Sustainability</span><span>Community</span><span>Enterprise</span>
+</div></div>
+
+<!-- ============================== JOURNEY ============================== -->
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="idx rv"><b>02</b><i></i><span class="label">Journey</span></p>
+        <h2 class="h2 fx">From a chessboard in Kinshasa to a <em>startup</em> in Mombasa.</h2>
+      </div>
+      <p class="lead rv">Each step taught me something the next one needed: budgeting, then selling, then building, then leading a team.</p>
+    </div>
+    <div class="journey" id="journeyList">
+      <span class="jline" aria-hidden="true"><i id="jfill"></i></span>
+      <div class="jrow">
+        <span class="jyear">2021</span>
+        <div class="jitems">
+          <article class="jitem rv"><span class="label">Where it started · Kinshasa</span><h3>East African Chess Academy</h3><p>After seeing how many young people played chess in Kinshasa's parks and public spaces, I joined my cousin in creating structured summer coaching. I co-taught and ran the finances.</p></article>
+          <article class="jitem rv" style="--d:.08s"><span class="label">2021 to 2024</span><h3>Four summers, about 50 players</h3><p>Four seven-day programmes for players aged 9 to 16, with instruction, equipment and organised tournaments. Many came back in later years.</p></article>
+        </div>
+      </div>
+      <div class="jrow">
+        <span class="jyear">2024</span>
+        <div class="jitems">
+          <article class="jitem rv"><span class="label">Internship · Kinshasa</span><h3>Aviny SARL finance team</h3><p>Working alongside the finance team of a diversified trading group introduced me to financial reporting and the decisions behind retail, restaurant and catering operations.</p></article>
+          <article class="jitem rv" style="--d:.08s"><span class="label">School enterprise</span><h3>Zawadi Bazaar</h3><p>I co-led a four-stall operation that made about KES 180,000 in sales, with half of net proceeds going to sustainability initiatives.</p></article>
+        </div>
+      </div>
+      <div class="jrow">
+        <span class="jyear">2025</span>
+        <div class="jitems">
+          <article class="jitem rv"><span class="label">Venture</span><h3>A&amp;F Ventures</h3><p>I co-founded a digital consultancy building ordering websites, landing pages and digital tools for local businesses.</p></article>
+          <article class="jitem rv" style="--d:.08s"><span class="label">School</span><h3>Youth Enterprise Catalyst</h3><p>Weekly sessions where students explore financial literacy, investing and entrepreneurship.</p></article>
+          <article class="jitem rv"><span class="label">Environment</span><h3>EarthPulse</h3><p>I became Managing Director of a student team of about 20 working on organic waste education and composting.</p></article>
+          <article class="jitem rv" style="--d:.08s"><span class="label">Abroad · Kyrgyzstan</span><h3>GE Summer Programme</h3><p>Workshops on technology, AI and entrepreneurship with an international group, SPCE schools and local communities.</p></article>
+        </div>
+      </div>
+      <div class="jrow">
+        <span class="jyear">2026</span>
+        <div class="jitems">
+          <article class="jitem rv"><span class="label">Recognition</span><h3>USD 2,500 for EarthPulse</h3><p>Our team was awarded an IB Global Youth Action Fund grant, and we installed an Aerobin composter at school.</p></article>
+          <article class="jitem rv" style="--d:.08s"><span class="label">Internship · Remote</span><h3>Aga Khan Agency for Microfinance</h3><p>Five weeks studying how a microfinance bank lends working capital to borrowers with no collateral or credit history.</p></article>
+          <article class="jitem rv"><span class="label">School production</span><h3>Into the Woods</h3><p>On the finance team, I secured 50% of the funds raised for our school musical.</p></article>
+          <article class="jitem rv" style="--d:.08s"><span class="label">Now building</span><h3>Fuel2Save and BINMAN</h3><p>A startup for drivers' fuel costs, in development, and EarthPulse's recycling app, preparing for launch.</p></article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== VENTURES ============================== -->
+<section id="ventures" class="on-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="idx rv"><b>03</b><i></i><span class="label">Ventures &amp; projects</span></p>
+        <h2 class="h2 fx">Things I've <em>started</em>, built and led.</h2>
+      </div>
+      <p class="lead rv">Some are businesses, some are school or community projects. Each one is labelled honestly: running, in development, or finished.</p>
+    </div>
+
+    <div class="bento">
+      <article class="vc big rv tilt">
+        <svg class="glyph" viewBox="0 0 66 64" aria-hidden="true"><use href="#mark" /></svg>
+        <div class="vc-top"><span class="mono">2025 – present</span><span class="st live">Active</span></div>
         <h3>A&amp;F Ventures</h3>
-        <p class="vcard-role">Founder &amp; Director · AI digital consultancy</p>
-        <p>Founded an AI-powered digital consultancy delivering automation, digital infrastructure, and growth systems for SMEs across East and Central Africa. Secured and delivered three client businesses end-to-end, from sales to launch.</p>
-        <ul class="chips"><li>AI Automation</li><li>CRM</li><li>Web</li><li>Analytics</li></ul>
-        <a class="vlink" href="https://digital-growth-partner-azure.vercel.app/" target="_blank" rel="noopener">Visit A&amp;F Ventures &rarr;</a>
+        <p class="vc-role">Co-founder · Business strategy and technical delivery</p>
+        <p>A digital consultancy helping small businesses in Kenya and the DRC adopt technology that fits their everyday needs: custom restaurant ordering websites, marketing landing pages, AI content and digital tools. We have two recurring client relationships alongside one-time projects.</p>
+        <div class="vc-links"><a class="link" href="https://digital-growth-partner-azure.vercel.app/" target="_blank" rel="noopener">Visit A&amp;F Ventures ↗</a><a class="link" href="assets/docs/af-ventures-company-profile.pdf" target="_blank" rel="noopener">Company profile (PDF) ↗</a></div>
       </article>
-
-      <article class="vcard flagship reveal">
-        <div class="vcard-top">
-          <span class="tag tag-gold">Flagship</span>
-          <span class="vcard-year">In development</span>
-        </div>
-        <h3>FuelSave</h3>
-        <p class="vcard-role">Co-Founder · Fuel-tech</p>
-        <p>An app-based solution that digitalizes the payment system for fuel stations, starting in Kenya. Currently in active development and investor-backed — built on the systems experience earned through A&amp;F Ventures.</p>
-        <ul class="chips"><li>Fintech</li><li>Payments</li><li>Mobile</li></ul>
-        <span class="vlink vlink-muted">Coming soon</span>
+      <article class="vc big dark rv tilt" style="--d:.08s">
+        <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v16M3 21h13M15 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3M7 7h5v4H7z" /></svg>
+        <div class="vc-top"><span class="mono">Kenya</span><span class="st dev">In development</span></div>
+        <h3>Fuel2Save</h3>
+        <p class="vc-role">Co-founder · Fuel costs for drivers</p>
+        <p>A startup being developed to help drivers find participating fuel stations and access fuel deals and rewards. It is aimed first at boda boda and matatu riders, for whom fuel is a daily operating cost, with spending tracking to help them understand what they spend.</p>
+        <div class="vc-links"><a class="link" href="https://fuelsave-website.vercel.app/" target="_blank" rel="noopener">Visit Fuel2Save ↗</a></div>
       </article>
-
-      <article class="vcard reveal">
-        <div class="vcard-top">
-          <span class="tag">Sustainability</span>
-          <span class="vcard-year">2025 — Present</span>
-        </div>
+      <article class="vc rv tilt">
+        <div class="vc-top"><span class="mono">2025 – present</span><span class="st live">Active</span></div>
         <h3>EarthPulse</h3>
-        <p class="vcard-role">Managing Director</p>
-        <p>Awarded a $2,500 Global Youth Action Fund grant to build a circular waste-to-resource system — turning organic waste into compost for farmers and biogas for low-income homes.</p>
-        <ul class="chips"><li>$2,500 grant</li><li>3 partners</li></ul>
+        <p class="vc-role">Managing Director</p>
+        <p>A student team of about 20 in Mombasa working on organic waste education and composting, backed by a USD 2,500 IB Global Youth Action Fund grant.</p>
+        <div class="vc-links"><a class="link" href="https://earthpulse.africa" target="_blank" rel="noopener">earthpulse.africa ↗</a></div>
       </article>
-
-      <article class="vcard reveal">
-        <div class="vcard-top">
-          <span class="tag">Education</span>
-          <span class="vcard-year">2021 — 2024</span>
-        </div>
+      <article class="vc rv tilt" style="--d:.06s">
+        <div class="vc-top"><span class="mono">An EarthPulse initiative</span><span class="st prep">Preparing for launch</span></div>
+        <h3>BINMAN</h3>
+        <p class="vc-role">Concept, prototype and website</p>
+        <p>An app being developed to connect households with recycling partners, coordinate collections and reward eligible recyclable materials.</p>
+        <div class="vc-links"><a class="link" href="https://binman.app" target="_blank" rel="noopener">binman.app ↗</a></div>
+      </article>
+      <article class="vc rv tilt" style="--d:.12s">
+        <div class="vc-top"><span class="mono">2025 – present</span><span class="st live">Weekly</span></div>
+        <h3>Youth Enterprise Catalyst</h3>
+        <p class="vc-role">Founder · YEC</p>
+        <p>Two-hour weekly sessions where students explore financial literacy, investing and entrepreneurship through learning materials, investment simulations and discussion.</p>
+      </article>
+      <article class="vc rv tilt">
+        <div class="vc-top"><span class="mono">2021 – 2024 · Kinshasa</span><span class="st done">Completed</span></div>
         <h3>East African Chess Academy</h3>
-        <p class="vcard-role">Co-Founder &amp; Finance Lead</p>
-        <p>Co-founded a youth chess academy from scratch, growing it to 40+ students across three summers and generating over $10,000 in revenue — a self-funded, student-led enterprise.</p>
-        <ul class="chips"><li>40+ students</li><li>$10K+ revenue</li></ul>
+        <p class="vc-role">Co-founder, co-instructor and finance lead</p>
+        <p>Structured summer coaching for about 50 young players aged 9 to 16 across four summers, with equipment and organised tournaments.</p>
       </article>
-
-      <article class="vcard reveal">
-        <div class="vcard-top">
-          <span class="tag">Finance</span>
-          <span class="vcard-year">2025 — Present</span>
-        </div>
-        <h3>Investment &amp; Trading Club</h3>
-        <p class="vcard-role">Founder &amp; President</p>
-        <p>Founded an investment club of 20+ members running live market analysis and simulated portfolios, with workshops on valuation, portfolio construction, and risk.</p>
-        <ul class="chips"><li>20+ members</li><li>Forage-certified</li></ul>
+      <article class="vc rv tilt" style="--d:.06s">
+        <div class="vc-top"><span class="mono">2026</span><span class="st done">Completed</span></div>
+        <h3>Into the Woods</h3>
+        <p class="vc-role">Finance team · School production</p>
+        <p>Sponsorship outreach, budgeting, allocation and licensing for our school musical. I personally secured 50% of the funds raised.</p>
       </article>
-
-      <article class="vcard reveal">
-        <div class="vcard-top">
-          <span class="tag">Retail</span>
-          <span class="vcard-year">2024 — 2025</span>
-        </div>
+      <article class="vc rv tilt" style="--d:.12s">
+        <div class="vc-top"><span class="mono">2025</span><span class="st done">First launch done</span></div>
+        <h3>Waffle Chips</h3>
+        <p class="vc-role">Co-founder · Product and branding</p>
+        <p>A snack product built with a supplier we met through Zawadi Bazaar: his manufacturing, our product ideas, branding and marketing. The first launch sold about 100 units.</p>
+      </article>
+      <article class="vc wide rv tilt">
+        <div class="vc-top"><span class="mono">2024 – 2025</span><span class="st done">Completed</span></div>
         <h3>Zawadi Bazaar</h3>
-        <p class="vcard-role">Initiative Lead · Drip-StoreKe</p>
-        <p>Led a four-stall market operation from sourcing to sales, generating KES 180,000 — with half of net proceeds directed to sustainability initiatives.</p>
-        <ul class="chips"><li>KES 180K</li><li>50% reinvested</li></ul>
+        <p class="vc-role">Co-lead · Four-stall school enterprise</p>
+        <p>I coordinated suppliers, stock, payment systems and sales tracking across four stalls. The operation made about KES 180,000 in sales, and 50% of net proceeds went towards sustainability initiatives.</p>
       </article>
-
-    </div>
-  </section>
-
-  <section class="section work tinted" id="work">
-    <div class="section-head">
-      <p class="section-kicker reveal">03 — Client Work</p>
-      <h2 class="section-title reveal">Selected work.</h2>
-      <p class="section-sub reveal">Websites, ordering, and growth systems built through A&amp;F Ventures for businesses across Kenya and the DRC.</p>
-    </div>
-    <div class="worklist">
-
-      <article class="workrow reveal" data-video="assets/qaffee.mp4">
-        <div class="wmedia">
-          <img class="asset" src="assets/work-qaffee.jpg" alt="Qaffee Point" />
-          <div class="wmedia-ph"><span>Qaffee Point</span><small>add work-qaffee.jpg to /assets</small></div>
-          <button class="play" aria-label="Play demo"><i>&#9658;</i></button>
-        </div>
-        <div class="wtext">
-          <span class="wnum">01</span>
-          <h3>Qaffee Point</h3>
-          <p class="wcat">Restaurant · Online ordering &amp; website</p>
-          <p>Online ordering and digital presence for one of Mombasa's best-loved restaurants — delivery, pickup, and a menu spanning five cuisines.</p>
-          <a class="wlink" href="https://qaffeepoint.co.ke/" target="_blank" rel="noopener">View live site &rarr;</a>
-        </div>
+      <article class="vc wide rv tilt" style="--d:.08s">
+        <div class="vc-top"><span class="mono">2025 · Kyrgyzstan</span><span class="st done">Completed</span></div>
+        <h3>GE Summer Programme</h3>
+        <p class="vc-role">Participant · Technology, AI and entrepreneurship</p>
+        <p>With an international group, I helped deliver interactive workshops introducing technology, AI and entrepreneurship to SPCE schools and local communities.</p>
       </article>
+    </div>
+  </div>
+</section>
 
-      <article class="workrow reveal" data-video="assets/massai.mp4">
-        <div class="wmedia">
-          <img class="asset" src="assets/work-massai.jpg" alt="Massai Group" />
-          <div class="wmedia-ph"><span>Massai Group</span><small>add work-massai.jpg to /assets</small></div>
-          <button class="play" aria-label="Play demo"><i>&#9658;</i></button>
+<!-- ============================== WORK ============================== -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="idx rv"><b>04</b><i></i><span class="label">Live work</span></p>
+        <h2 class="h2 fx">Websites you can <em>actually visit</em>.</h2>
+      </div>
+      <p class="lead rv">The products and initiatives I'm part of, and sites built for clients through A&amp;F Ventures. Every preview is the real, live landing page.</p>
+    </div>
+
+    <div class="builds">
+      <article class="build">
+        <div class="stage rv">
+          <a class="browser" href="https://fuelsave-website.vercel.app/" target="_blank" rel="noopener" aria-label="Visit the Fuel2Save website">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">fuelsave-website.vercel.app</span></div>
+            <div class="shot"><img src="assets/shots/fuel2save.webp" alt="The Fuel2Save landing page: Fuel up for less" loading="lazy" width="1200" height="750" /><span class="visit">Visit site ↗</span></div>
+          </a>
         </div>
-        <div class="wtext">
-          <span class="wnum">02</span>
-          <h3>Massai Group</h3>
-          <p class="wcat">Hospitality · Multi-brand group site</p>
-          <p>A group site for three coastal dining destinations in Mombasa, giving each restaurant a distinct identity under one polished brand.</p>
-          <a class="wlink" href="https://massai-group.vercel.app/" target="_blank" rel="noopener">View live site &rarr;</a>
+        <div class="build-copy rv">
+          <span class="label">01 · My startup</span>
+          <h3 class="fx">Fuel2Save</h3>
+          <span class="st dev">In development · preparing for a pilot</span>
+          <p>A startup for drivers whose livelihoods depend on fuel, starting with boda boda and matatu riders in Kenya. Drivers find participating stations, access fuel deals and rewards, and track what they spend.</p>
+          <ul class="facts"><li>Co-founder</li><li>M-PESA payments</li><li>Marketing site</li></ul>
+          <div class="acts"><a class="btn btn-ink" href="https://fuelsave-website.vercel.app/" target="_blank" rel="noopener">Visit Fuel2Save <span class="arr ne">↗</span></a></div>
         </div>
       </article>
 
-      <article class="workrow reveal" data-video="assets/almas.mp4">
-        <div class="wmedia">
-          <img class="asset" src="assets/work-almas.jpg" alt="Almas Electronics" />
-          <div class="wmedia-ph"><span>Almas Electronics</span><small>add work-almas.jpg to /assets</small></div>
-          <button class="play" aria-label="Play demo"><i>&#9658;</i></button>
+      <article class="build">
+        <div class="stage rv">
+          <a class="browser" href="https://binman.app" target="_blank" rel="noopener" aria-label="Visit the BINMAN website">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">binman.app</span></div>
+            <div class="shot"><img src="assets/shots/binman.webp" alt="The BINMAN landing page: Your scraps, their next chapter, with a live app prototype" loading="lazy" width="1200" height="750" /><span class="visit">Visit site ↗</span></div>
+          </a>
         </div>
-        <div class="wtext">
-          <span class="wnum">03</span>
-          <h3>Almas Electronics</h3>
-          <p class="wcat">Retail · E-commerce storefront</p>
-          <p>An e-commerce storefront concept for a Nairobi electronics retailer, with product-led landing pages and marketing reels.</p>
-          <span class="wlink wlink-muted">Demo available on request</span>
-        </div>
-      </article>
-
-      <article class="workrow reveal">
-        <div class="wmedia">
-          <img class="asset" src="assets/work-ntv.jpg" alt="NTV" />
-          <div class="wmedia-ph"><span>NTV</span><small>add work-ntv.jpg to /assets</small></div>
-        </div>
-        <div class="wtext">
-          <span class="wnum">04</span>
-          <h3>NTV</h3>
-          <p class="wcat">Media · Web platform</p>
-          <p>A delivered client web project for a media business in the DRC.</p>
-          <a class="wlink" href="https://ntvonline.replit.app/" target="_blank" rel="noopener">View live site &rarr;</a>
+        <div class="build-copy rv">
+          <span class="label">02 · An EarthPulse initiative</span>
+          <h3 class="fx">BINMAN</h3>
+          <span class="st prep">Preparing for launch</span>
+          <p>An app connecting households with recycling partners, coordinating collections and rewarding eligible materials. I helped shape the concept and prototype, built its website and worked closely with the app developer.</p>
+          <ul class="facts"><li>Website I built</li><li>Live prototype</li><li>3D scenes</li></ul>
+          <div class="acts"><a class="btn btn-ink" href="https://binman.app" target="_blank" rel="noopener">Visit BINMAN <span class="arr ne">↗</span></a></div>
         </div>
       </article>
 
-    </div>
-  </section>
-
-  <section class="section experience" id="experience">
-    <div class="section-head">
-      <p class="section-kicker reveal">04 — Experience</p>
-      <h2 class="section-title reveal">Where I've worked.</h2>
-    </div>
-    <ol class="timeline">
-      <li class="tline reveal">
-        <span class="tline-dot"></span>
-        <div class="tline-head"><h3>Intern (Remote)</h3><span class="tline-year">2025 — Present</span></div>
-        <p class="tline-org">Aga Khan Agency for Microfinance (AKAM) · Afghanistan</p>
-        <p>Currently interning remotely with AKAM, contributing to the agency's microfinance operations.</p>
-      </li>
-      <li class="tline reveal">
-        <span class="tline-dot"></span>
-        <div class="tline-head"><h3>Finance &amp; Operations Intern</h3><span class="tline-year">2024</span></div>
-        <p class="tline-org">Aviny SARL · Kinshasa, DRC</p>
-        <p>Embedded with the head-office finance team of a diversified trading group. Studied P&amp;L, balance sheet, and cash-flow preparation under practising accountants and reviewed live HR and contract documentation.</p>
-      </li>
-    </ol>
-
-    <div class="skills-wrap">
-      <div class="skillcol reveal">
-        <h4>Finance</h4>
-        <ul class="chips"><li>Financial statement analysis</li><li>Budgeting &amp; forecasting</li><li>Investment &amp; portfolio analysis</li></ul>
-      </div>
-      <div class="skillcol reveal">
-        <h4>Digital &amp; tech</h4>
-        <ul class="chips"><li>AI automation &amp; CRM</li><li>Web development</li><li>Analytics dashboards</li><li>POS (Square, Loyverse)</li></ul>
-      </div>
-      <div class="skillcol reveal">
-        <h4>Growth &amp; tools</h4>
-        <ul class="chips"><li>Digital marketing &amp; SEO</li><li>Excel</li><li>PowerPoint</li></ul>
-      </div>
-      <div class="skillcol reveal">
-        <h4>Certifications &amp; languages</h4>
-        <ul class="chips"><li>Fidelity Intl. (Forage)</li><li>JP Morgan (Forage)</li><li>English</li><li>French</li><li>Gujarati</li><li>Hindi</li></ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section resume" id="resume">
-    <div class="resume-card reveal">
-      <div class="resume-copy">
-        <p class="section-kicker">Résumé</p>
-        <h2 class="section-title">The full story, on one page.</h2>
-        <p>Prefer the traditional version? View or download my résumé — education, experience, skills, and certifications.</p>
-      </div>
-      <div class="resume-actions">
-        <a class="btn btn-primary" href="assets/resume.pdf" target="_blank" rel="noopener">View résumé <i class="arr">&rarr;</i></a>
-        <a class="btn btn-ghost" href="assets/resume.pdf" download="Avi_Dharani_Resume.pdf">Download PDF</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-banner reveal">
-    <div class="cta-inner">
-      <h2>Got a project, an idea, or an investment in mind?</h2>
-      <p>I'm always up for a good conversation. Let's make something that lasts.</p>
-      <a href="#contact" class="btn btn-light">Let's talk &rarr;</a>
-    </div>
-  </section>
-
-  <section class="section contact" id="contact">
-    <div class="contact-inner">
-      <div class="contact-copy reveal">
-        <p class="section-kicker">05 — Contact</p>
-        <h2 class="section-title">Send me a note.</h2>
-        <p>Whether you're a business that needs digital systems, an investor, or just want to connect — drop a message and I'll get back to you.</p>
-        <ul class="contact-links">
-          <li><span>Email</span><a href="mailto:avidharani110@gmail.com">avidharani110@gmail.com</a></li>
-          <li><span>Location</span><a>Mombasa, Kenya</a></li>
-          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/avi-dharani-b0a837292/" target="_blank" rel="noopener">avi-dharani</a></li>
-        </ul>
-      </div>
-      <form class="contact-form reveal" id="contactForm" novalidate>
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required />
+      <article class="build">
+        <div class="stage rv">
+          <a class="browser" href="https://earthpulse.africa" target="_blank" rel="noopener" aria-label="Visit the EarthPulse website">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">earthpulse.africa</span></div>
+            <div class="shot"><img src="assets/shots/earthpulse.webp" alt="The EarthPulse landing page: Waste into compost" loading="lazy" width="1200" height="750" /><span class="visit">Visit site ↗</span></div>
+          </a>
         </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        <div class="build-copy rv">
+          <span class="label">03 · The initiative I help lead</span>
+          <h3 class="fx">EarthPulse</h3>
+          <span class="st live">Active</span>
+          <p>Our student initiative's home: the composting and waste-education work, the team, events, recognition and our proposal to AKDN for a BINMAN pilot.</p>
+          <ul class="facts"><li>Managing Director</li><li>~20-person team</li><li>USD 2,500 IB grant</li></ul>
+          <div class="acts"><a class="btn btn-ink" href="https://earthpulse.africa" target="_blank" rel="noopener">Visit EarthPulse <span class="arr ne">↗</span></a></div>
         </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="What's on your mind?" required></textarea>
+      </article>
+
+      <article class="build">
+        <div class="stage rv">
+          <a class="browser" href="https://digital-growth-partner-azure.vercel.app/" target="_blank" rel="noopener" aria-label="Visit the A&amp;F Ventures website">
+            <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">A&amp;F Ventures · digital consultancy</span></div>
+            <div class="shot"><img src="assets/shots/afventures.webp" alt="The A&amp;F Ventures landing page: Systems that grow your business" loading="lazy" width="1200" height="750" /><span class="visit">Visit site ↗</span></div>
+          </a>
         </div>
-        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Send message</button>
-        <p class="form-note" id="formNote" role="status"></p>
-      </form>
+        <div class="build-copy rv">
+          <span class="label">04 · My consultancy</span>
+          <h3 class="fx">A&amp;F Ventures</h3>
+          <span class="st live">Taking on clients</span>
+          <p>Our consultancy's site: the services we offer local businesses, from ordering websites and booking systems to AI content and automation, plus the work we've delivered.</p>
+          <ul class="facts"><li>Co-founder</li><li>2 recurring clients</li><li>Kenya and the DRC</li></ul>
+          <div class="acts"><a class="btn btn-ink" href="https://digital-growth-partner-azure.vercel.app/" target="_blank" rel="noopener">Visit A&amp;F Ventures <span class="arr ne">↗</span></a><a class="link" href="assets/docs/af-ventures-building-africas-digital-infrastructure.pdf" target="_blank" rel="noopener">Our pitch deck ↗</a></div>
+        </div>
+      </article>
     </div>
-  </section>
+
+    <div class="clients">
+      <div class="clients-head">
+        <div>
+          <p class="label rv" style="margin-bottom:12px">Client work through A&amp;F Ventures</p>
+          <h3 class="h3 fx">Built for real businesses.</h3>
+        </div>
+      </div>
+      <div class="cgrid">
+        <article class="cc rv">
+          <div class="thumb"><img src="assets/img/qaffee.webp" alt="The Qaffee Point website" loading="lazy" width="1200" height="750" /></div>
+          <div class="body"><span class="mono">Mombasa · Restaurant</span><h4>Qaffee Point</h4><p>A custom ordering website and backend, giving the restaurant its own direct channel to customers.</p><span class="na">Recurring client</span></div>
+        </article>
+        <article class="cc rv" style="--d:.06s">
+          <div class="thumb"><img src="assets/shots/massai.webp" alt="The Massai Group website" loading="lazy" width="1200" height="750" /></div>
+          <div class="body"><span class="mono">Mombasa · Hospitality</span><h4>Massai Group</h4><p>One site for three coastal dining destinations, giving each restaurant its own identity under one brand.</p><a class="link" href="https://massai-group.vercel.app/" target="_blank" rel="noopener">View live site ↗</a></div>
+        </article>
+        <article class="cc rv" style="--d:.12s">
+          <div class="thumb"><img src="assets/shots/ntv.webp" alt="The Noortaaj Village website" loading="lazy" width="1200" height="750" /></div>
+          <div class="body"><span class="mono">Kinshasa · Restaurant</span><h4>Noortaaj Village</h4><p>Ordering, catering and rewards for a Kinshasa restaurant serving Congolese, European and Indian food.</p><a class="link" href="https://ntvonline.replit.app/" target="_blank" rel="noopener">View live site ↗</a></div>
+        </article>
+        <article class="cc rv" style="--d:.18s">
+          <div class="thumb glyphed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" /><path d="M8 20h8M12 16v4" /></svg></div>
+          <div class="body"><span class="mono">Nairobi · Retail</span><h4>Almas Electronics</h4><p>An e-commerce storefront concept for an electronics retailer, with product-led pages and marketing reels.</p><span class="na">Demo available on request</span></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="logos" aria-label="Organisations, clients and partners I have worked with">
+  <div class="track">
+    <span>Aga Khan Agency for Microfinance</span><span>Aviny <small>SARL</small></span><span>Qaffee Point</span><span>Massai Group</span><span>Noortaaj Village</span><span>Regen Organics</span><span>St. Augustine Secondary</span><span>Port Reitz School</span><span>IB Global Youth Action Fund</span>
+    <span aria-hidden="true">Aga Khan Agency for Microfinance</span><span aria-hidden="true">Aviny <small>SARL</small></span><span aria-hidden="true">Qaffee Point</span><span aria-hidden="true">Massai Group</span><span aria-hidden="true">Noortaaj Village</span><span aria-hidden="true">Regen Organics</span><span aria-hidden="true">St. Augustine Secondary</span><span aria-hidden="true">Port Reitz School</span><span aria-hidden="true">IB Global Youth Action Fund</span>
+  </div>
+</div>
+
+<!-- ============================== IMPACT ============================== -->
+<section id="impact" class="impact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="idx rv"><b>05</b><i></i><span class="label">Sustainability &amp; positive impact</span></p>
+        <h2 class="h2 fx">Building opportunities in my <em>community</em>.</h2>
+      </div>
+    </div>
+    <p class="imp-intro rv">My projects connect interests in business, technology and finance with the communities around me. Whether I am helping a local business manage its own customer relationships, teaching chess or coordinating environmental work, I care about making useful opportunities easier to access and sustain.</p>
+    <div class="imp-legend rv">
+      <span><span class="st done">Completed</span>&nbsp; work that has happened</span>
+      <span><span class="st live">Ongoing</span>&nbsp; running now</span>
+      <span><span class="st dev">Intended</span>&nbsp; planned benefits, not yet delivered</span>
+    </div>
+
+    <div class="imp-filter rv" role="group" aria-label="Filter by theme">
+      <button type="button" aria-pressed="true" data-f="all">All themes<span>10</span></button>
+      <button type="button" aria-pressed="false" data-f="enterprise">Local enterprise<span>4</span></button>
+      <button type="button" aria-pressed="false" data-f="youth">Youth opportunity<span>4</span></button>
+      <button type="button" aria-pressed="false" data-f="environment">Environmental action<span>2</span></button>
+    </div>
+
+    <!-- Theme 1 -->
+    <div class="theme" data-theme="enterprise">
+      <div class="theme-head rv">
+        <span class="num">Theme 01</span>
+        <h3>Local enterprise</h3>
+        <p>Helping small businesses and working people use practical tools to run more independently.</p>
+      </div>
+      <div class="theme-cards">
+        <article class="imp rv">
+          <div class="imp-top"><span class="mono">A&amp;F Ventures</span><span class="st live">Ongoing</span></div>
+          <h4>Strengthening local businesses through practical technology</h4>
+          <p class="role">Co-founder · Business strategy and technical delivery</p>
+          <p class="body">Through A&amp;F Ventures, I help local small businesses adopt technology that fits their everyday needs. Our work includes custom restaurant ordering websites, marketing landing pages, AI content and digital tools. A restaurant client reported that its new ordering system simplified its workflow and reduced reliance on third-party platforms, while giving it a direct customer channel and access to its own customer information. This allows the business to manage customer relationships and offers more independently.</p>
+          <details><summary>Why it matters to me · evidence</summary>
+            <div class="more">
+              <div><h5>Why it matters to me</h5><p>I enjoy translating a business owner's practical difficulties into something useful. I also direct part of my earnings toward learning resources for Youth Enterprise Catalyst, connecting work for local businesses with financial education at school.</p></div>
+              <div><h5>Completed so far</h5><ul><li>Two recurring client relationships, alongside one-time projects.</li><li>A custom ordering website and backend delivered for Qaffee Point.</li><li>About USD 500 contributed toward learning resources for YEC.</li></ul></div>
+            </div>
+          </details>
+        </article>
+        <article class="imp rv" style="--d:.06s">
+          <div class="imp-top"><span class="mono">Fuel2Save</span><span class="st dev">In development</span></div>
+          <h4>Helping drivers manage transport costs</h4>
+          <p class="role">Co-founder</p>
+          <p class="body">Fuel2Save is a startup being developed to help drivers find participating fuel stations and access fuel deals and rewards. Its intended beneficiaries include boda boda and matatu riders, for whom fuel is a recurring operating expense. Spending-tracking features are intended to help users understand their fuel costs and make more informed choices.</p>
+          <details><summary>Why it matters to me · status</summary>
+            <div class="more">
+              <div><h5>Why it matters to me</h5><p>I want to explore how a practical business model can support people whose livelihoods depend on transport. The project connects my interests in finance and technology with the everyday cost pressures drivers face.</p></div>
+              <div class="intended"><h5>Intended, not yet delivered</h5><ul><li>A pilot with participating stations.</li><li>Deals, rewards and spending tracking for drivers.</li></ul></div>
+            </div>
+          </details>
+        </article>
+        <article class="imp rv">
+          <div class="imp-top"><span class="mono">Waffle Chips</span><span class="st done">Completed</span></div>
+          <h4>Collaboration with a local supplier</h4>
+          <p class="role">Co-founder</p>
+          <p class="body">Waffle Chips grew from a supplier relationship developed through Zawadi Bazaar. We combined the supplier's manufacturing capabilities with our product ideas, branding and marketing to bring a snack product to market. The initial launch sold approximately 100 units, creating a small commercial opportunity through collaboration.</p>
+          <details><summary>Why it matters to me</summary>
+            <div class="more"><div><p>The project helped me see how combining different people's skills can turn an idea into a product.</p></div></div>
+          </details>
+        </article>
+        <article class="imp rv" style="--d:.06s">
+          <div class="imp-top"><span class="mono">Zawadi Bazaar</span><span class="st done">Completed</span></div>
+          <h4>School enterprise supporting sustainability</h4>
+          <p class="role">Co-lead</p>
+          <p class="body">I co-led a four-stall operation at our school's Zawadi Bazaar, coordinating suppliers, stock, payment systems and sales tracking. The operation generated approximately KES 180,000 in sales, with 50% of net proceeds directed toward sustainability initiatives.</p>
+          <details><summary>Evidence</summary>
+            <div class="more"><div><h5>Completed</h5><ul><li>About KES 180,000 in total sales across four stalls.</li><li>Half of net proceeds (after costs), not of sales, went to sustainability initiatives.</li></ul></div></div>
+          </details>
+        </article>
+      </div>
+    </div>
+
+    <!-- Theme 2 -->
+    <div class="theme" data-theme="youth">
+      <div class="theme-head rv">
+        <span class="num">Theme 02</span>
+        <h3>Youth opportunity</h3>
+        <p>Creating spaces where young people can learn, practise and try things early.</p>
+      </div>
+      <div class="theme-cards">
+        <article class="imp rv">
+          <div class="imp-top"><span class="mono">YEC · Youth Enterprise Catalyst</span><span class="st live">Weekly</span></div>
+          <h4>Financial literacy and youth initiative</h4>
+          <p class="role">Founder</p>
+          <p class="body">Through YEC, I help students explore financial literacy, investing and entrepreneurship in weekly two-hour sessions. We use learning materials, investment simulations and discussions to connect financial concepts with practical decisions. Students are encouraged to notice problems around them and consider how a useful business could address them.</p>
+          <details><summary>Why it matters to me · resources</summary>
+            <div class="more">
+              <div><h5>Why it matters to me</h5><p>I want other students to have opportunities to explore money and enterprise early, ask questions and practise before facing real financial decisions. Part of my earnings from A&amp;F helps fund the learning resources we use.</p></div>
+              <div><h5>Resources we use</h5><ul><li>Paid: Coursera and edX.</li><li>Free: Investopedia and investment simulators.</li><li>Forage virtual job simulations, which give a certificate of completion. They are practice tasks, not jobs, internships or professional qualifications.</li></ul></div>
+            </div>
+          </details>
+        </article>
+        <article class="imp rv" style="--d:.06s">
+          <div class="imp-top"><span class="mono">East African Chess Academy</span><span class="st done">2021 – 2024</span></div>
+          <h4>Youth confidence and access to structured learning</h4>
+          <p class="role">Co-founder, co-instructor and finance lead</p>
+          <p class="body">After noticing young people's enthusiasm for chess in Kinshasa's parks, mosques and public spaces, I joined my cousin in creating structured summer coaching. Across four summers, approximately 50 individual participants aged 9 to 16 gained access to instruction, equipment and organised tournaments. Many returned in later years.</p>
+          <details><summary>Teaching, one student's story · how it ran</summary>
+            <div class="more">
+              <div><h5>Teaching and inclusion</h5><p>We assessed participants' abilities and adapted sessions for different levels, rotating coaching with suitable videos and peer strategy discussions. This gave beginners foundational support while keeping experienced players challenged.</p></div>
+              <div><h5>One student</h5><blockquote>I provided focused support to a talented student who lacked confidence in timed games. He became more comfortable playing with a clock and later achieved success in interschool competition. That experience made the value of individual attention especially meaningful to me.</blockquote></div>
+              <div><h5>How it kept going</h5><p>Programme fees helped cover equipment and practical costs, supporting delivery over four summers: four seven-day programmes of two to three hours a day. Through games and discussion, participants practised considering alternatives, explaining decisions and adapting to setbacks.</p></div>
+            </div>
+          </details>
+        </article>
+        <article class="imp rv">
+          <div class="imp-top"><span class="mono">Into the Woods</span><span class="st done">Completed</span></div>
+          <h4>Supporting creative opportunities at school</h4>
+          <p class="role">Finance team</p>
+          <p class="body">I helped make our school's production of Into the Woods possible through sponsorship outreach, budgeting, allocation and licensing work. I personally secured 50% of the funds raised, helping support the practical requirements behind a shared creative experience for students and the school community.</p>
+          <details><summary>Why it matters to me</summary>
+            <div class="more"><div><p>This showed me how financial and organisational work can support other people's creativity. My contribution involved making commitments to sponsors and helping turn their support into resources for the production.</p></div></div>
+          </details>
+        </article>
+        <article class="imp rv" style="--d:.06s">
+          <div class="imp-top"><span class="mono">GE Summer Programme · Kyrgyzstan</span><span class="st done">Completed</span></div>
+          <h4>Shared learning across communities</h4>
+          <p class="role">Participant</p>
+          <p class="body">During the GE Summer Programme in Kyrgyzstan, I collaborated with an international group on technology, AI and entrepreneurship activities. We worked with SPCE schools and local communities to deliver interactive workshops introducing these topics.</p>
+          <details><summary>Why it matters to me</summary>
+            <div class="more"><div><p>The experience helped me practise explaining unfamiliar ideas to different audiences and learn from people with different experiences.</p></div></div>
+          </details>
+        </article>
+      </div>
+    </div>
+
+    <!-- Theme 3 -->
+    <div class="theme" data-theme="environment">
+      <div class="theme-head rv">
+        <span class="num">Theme 03</span>
+        <h3>Environmental action</h3>
+        <p>Turning concern about waste into things people can do locally.</p>
+      </div>
+      <div class="theme-cards">
+        <article class="imp rv">
+          <div class="imp-top"><span class="mono">EarthPulse</span><span class="st live">Ongoing</span></div>
+          <h4>Turning environmental awareness into practical participation</h4>
+          <p class="role">Managing Director</p>
+          <p class="body">As Managing Director of EarthPulse, I help coordinate a team of around 20 students working on organic waste education and composting. We combined awareness sessions with a practical activity involving approximately 30 children, helping them understand how separating food waste can turn discarded material into a useful resource. Our work with St. Augustine Secondary, Port Reitz School and Regen Organics connects school learning with community participation and recycling expertise.</p>
+          <details><summary>School composting · why it matters · evidence</summary>
+            <div class="more">
+              <div><h5>School composting</h5><p>We installed an Aerobin at school and began diverting organic food waste into it for composting.</p></div>
+              <div class="intended"><h5>Intended next</h5><ul><li>Using the compost for an EarthPulse garden.</li><li>Donating compost to local farmers for their crops.</li></ul></div>
+              <div><h5>Why it matters to me</h5><p>EarthPulse matters to me because it connects an environmental concern with actions people can take locally. My role includes managing resources, coordinating tasks and reporting progress so that our work can continue beyond a single awareness event.</p></div>
+              <div><h5>Completed so far</h5><ul><li>USD 2,500 IB Global Youth Action Fund grant awarded to the team.</li><li>A team of around 20 members.</li><li>About 30 children took part in the practical session.</li><li>An Aerobin composter installed at school.</li></ul></div>
+            </div>
+          </details>
+        </article>
+        <article class="imp rv" style="--d:.06s">
+          <div class="imp-top"><span class="mono">BINMAN · an EarthPulse initiative</span><span class="st prep">Preparing for launch</span></div>
+          <h4>Making recycling easier to participate in</h4>
+          <p class="role">Concept, prototype and website</p>
+          <p class="body">BINMAN is being developed to connect households with recycling companies, coordinate collections and reward eligible recyclable materials. Its intended benefit is to make waste separation more practical and worthwhile for households while helping recycling partners access recoverable materials. The approach supports a circular economy by connecting discarded resources with opportunities for reuse or processing.</p>
+          <details><summary>My contribution · status</summary>
+            <div class="more">
+              <div><h5>My contribution</h5><p>I helped shape the concept and prototype, developed its website and worked closely with the app developer.</p></div>
+              <div class="intended"><h5>Intended, not yet operating</h5><ul><li>The website and prototype are live. The collection service itself has not launched yet.</li></ul></div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== EXPERIENCE ============================== -->
+<section id="experience" class="on-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="idx rv"><b>06</b><i></i><span class="label">Experience</span></p>
+        <h2 class="h2 fx">Where I've <em>learned</em> on the job.</h2>
+      </div>
+      <p class="lead rv">Two internships: one inside a development finance agency, one inside a trading group's finance team.</p>
+    </div>
+    <div class="xp">
+      <article class="xcard rv">
+        <div>
+          <div class="meta"><span class="st live" style="background:rgba(243,240,232,.08);color:#7fc9a3">Remote internship</span><span class="mono">2026 · five weeks</span></div>
+          <h3>Remote Intern</h3>
+          <p class="org">Aga Khan Agency for Microfinance (AKAM)</p>
+          <p>Through a remote internship involving HR, marketing and product teams, I researched organisational challenges and prepared presentations exploring potential AI-supported solutions. The experience strengthened my interest in how financial institutions and technology can respond to practical needs.</p>
+          <p>My main study was working-capital lending at First MicroFinanceBank Afghanistan: how a lender assesses borrowers who have no collateral, no credit score and no formal financial history. I found that harvest timing, exchange rates and a borrower's reputation often mattered more than anything in the file.</p>
+          <div class="acts">
+            <a class="btn btn-ember" href="assets/docs/akam-internship-proposal.pdf" target="_blank" rel="noopener">Read my proposal <span class="arr ne">↗</span></a>
+            <a class="btn btn-ghost" href="https://internship-presentation-alpha.vercel.app" target="_blank" rel="noopener">Interactive reflection talk <span class="arr ne">↗</span></a>
+          </div>
+        </div>
+        <div class="xdoc"><a href="assets/docs/akam-internship-proposal.pdf" target="_blank" rel="noopener"><img src="assets/docs/akam-internship-proposal-cover.webp" alt="Cover of the proposal: Reading beyond the credit file" loading="lazy" width="640" height="905" /></a><span>Intern proposal · 6 pages · PDF</span></div>
+      </article>
+      <article class="xcard rv">
+        <div>
+          <div class="meta"><span class="st done" style="background:rgba(243,240,232,.08);color:var(--on-ink-2)">Internship</span><span class="mono">2024 · Kinshasa, DRC</span></div>
+          <h3>Finance Intern</h3>
+          <p class="org">Aviny SARL</p>
+          <p>Working alongside the finance team at Aviny SARL introduced me to financial reporting and the decisions supporting retail, restaurant and catering operations. I observed how reliable information helps managers understand costs and allocate resources.</p>
+          <p>Aviny SARL is my family's diversified trading group, incorporated in Kinshasa in 2005, with activities spanning trading and distribution, retail, restaurants and services.</p>
+          <div class="acts"><a class="btn btn-ghost" href="assets/docs/aviny-sarl-company-profile-2024.pdf" target="_blank" rel="noopener">Company profile (PDF) <span class="arr ne">↗</span></a></div>
+        </div>
+        <div class="xdoc"><a href="assets/docs/aviny-sarl-company-profile-2024.pdf" target="_blank" rel="noopener"><img src="assets/docs/aviny-sarl-company-profile-2024-cover.webp" alt="Cover of the Aviny SARL company profile" loading="lazy" width="640" height="906" /></a><span>Company profile · 12 pages · PDF</span></div>
+      </article>
+    </div>
+
+    <div class="skills">
+      <div class="sk rv"><h4>Finance</h4><ul><li>Financial statement reading</li><li>Budgeting &amp; forecasting</li><li>Investment analysis</li><li>Sponsorship &amp; fundraising</li></ul></div>
+      <div class="sk rv" style="--d:.06s"><h4>Building</h4><ul><li>Web development</li><li>AI automation</li><li>CRM &amp; dashboards</li><li>POS: Square, Loyverse</li><li>Payments: M-PESA</li></ul></div>
+      <div class="sk rv" style="--d:.12s"><h4>Business</h4><ul><li>Client discovery</li><li>Proposals &amp; reports</li><li>Supplier coordination</li><li>Digital marketing</li><li>Excel &amp; PowerPoint</li></ul></div>
+      <div class="sk lang rv" style="--d:.18s"><h4>Languages</h4><ul><li>English <span>Fluent</span></li><li>French <span>Fluent</span></li><li>Gujarati <span>Fluent</span></li><li>Hindi <span>Fluent</span></li><li>Lingala <span>Basic</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== DOCUMENTS ============================== -->
+<section id="documents">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="idx rv"><b>07</b><i></i><span class="label">Documents &amp; writing</span></p>
+        <h2 class="h2 fx">The <em>paperwork</em> behind the work.</h2>
+      </div>
+      <p class="lead rv">Proposals, reports and profiles I've written or worked on. Client reports are public editions with pricing removed.</p>
+    </div>
+    <div class="docs">
+      <a class="doc rv" href="assets/docs/akam-internship-proposal.pdf" target="_blank" rel="noopener">
+        <div class="cover"><img src="assets/docs/akam-internship-proposal-cover.webp" alt="" loading="lazy" /><span class="open">↗</span></div>
+        <div class="dmeta"><span class="mono">Proposal · 6 pages</span><h4>Reading beyond the credit file</h4><p>AI-supported ideas for working-capital lending, from my AKAM internship.</p><span class="tag">For discussion · not implemented</span></div>
+      </a>
+      <a class="doc rv" style="--d:.06s" href="https://earthpulse.africa/documents/earthpulse-akdn-partnership-proposal.pdf" target="_blank" rel="noopener">
+        <div class="cover"><img src="assets/docs/earthpulse-akdn-proposal-cover.webp" alt="" loading="lazy" /><span class="open">↗</span></div>
+        <div class="dmeta"><span class="mono">Proposal · 6 pages</span><h4>EarthPulse × AKDN: BINMAN Smart-Bin pilot</h4><p>EarthPulse's partnership proposal to the Aga Khan Development Network.</p><span class="tag">Proposal · not an agreed partnership</span></div>
+      </a>
+      <a class="doc rv" style="--d:.12s" href="assets/docs/af-ventures-company-profile.pdf" target="_blank" rel="noopener">
+        <div class="cover"><img src="assets/docs/af-ventures-company-profile-cover.webp" alt="" loading="lazy" /><span class="open">↗</span></div>
+        <div class="dmeta"><span class="mono">Company profile · 10 pages</span><h4>A&amp;F Ventures company profile</h4><p>Who we are, what we do, and the work we've delivered.</p></div>
+      </a>
+      <a class="doc rv" style="--d:.18s" href="assets/docs/aviny-sarl-company-profile-2024.pdf" target="_blank" rel="noopener">
+        <div class="cover"><img src="assets/docs/aviny-sarl-company-profile-2024-cover.webp" alt="" loading="lazy" /><span class="open">↗</span></div>
+        <div class="dmeta"><span class="mono">Company profile · 12 pages</span><h4>Aviny SARL, 2024</h4><p>The trading group where I interned with the finance team.</p></div>
+      </a>
+      <a class="doc rv" href="assets/docs/af-ventures-building-africas-digital-infrastructure.pdf" target="_blank" rel="noopener">
+        <div class="cover land"><img src="assets/docs/af-ventures-building-africas-digital-infrastructure-cover.webp" alt="" loading="lazy" /><span class="open">↗</span></div>
+        <div class="dmeta"><span class="mono">Pitch deck · 13 slides</span><h4>Building Africa's digital infrastructure</h4><p>A&amp;F Ventures' story and approach, as a slide deck.</p></div>
+      </a>
+      <a class="doc rv" style="--d:.06s" href="assets/docs/massai-group-digital-solution-report.pdf" target="_blank" rel="noopener">
+        <div class="cover"><img src="assets/docs/massai-group-digital-solution-report-cover.webp" alt="" loading="lazy" /><span class="open">↗</span></div>
+        <div class="dmeta"><span class="mono">Client report · 5 pages</span><h4>Massai Group digital solution report</h4><p>The problem, the proposed site and how it would work.</p><span class="tag">Public edition · pricing removed</span></div>
+      </a>
+      <a class="doc rv" style="--d:.12s" href="assets/docs/il-giardino-digital-solution-report.pdf" target="_blank" rel="noopener">
+        <div class="cover"><img src="assets/docs/il-giardino-digital-solution-report-cover.webp" alt="" loading="lazy" /><span class="open">↗</span></div>
+        <div class="dmeta"><span class="mono">Client report · 3 pages</span><h4>Il Giardino &amp; Koroga solution report</h4><p>Ordering, reservations, M-PESA and loyalty for three restaurants.</p><span class="tag">Public edition · pricing removed</span></div>
+      </a>
+      <a class="doc rv" style="--d:.18s" href="assets/docs/jpmorgan-investment-banking-job-simulation.pdf" target="_blank" rel="noopener">
+        <div class="cover land"><img src="assets/docs/jpmorgan-investment-banking-job-simulation-cover.webp" alt="" loading="lazy" /><span class="open">↗</span></div>
+        <div class="dmeta"><span class="mono">Certificate · Sept 2025</span><h4>JP Morgan investment banking job simulation</h4><p>Forage virtual job simulation: M&amp;A targets, financial analysis and an investment recommendation.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RECOGNITION ============================== -->
+<section id="recognition" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="idx rv"><b>08</b><i></i><span class="label">Recognition, learning &amp; life</span></p>
+        <h2 class="h2 fx">Beyond the <em>projects</em>.</h2>
+      </div>
+    </div>
+    <div class="rec">
+      <ul class="alist rv">
+        <li><div><b>IB Global Youth Action Fund grant</b><span>USD 2,500, awarded to our EarthPulse team</span></div><span class="mono">2026</span></li>
+        <li><div><b>Second Honours, three times</b><span>Academic awards</span></div><span class="mono">School</span></li>
+        <li><div><b>Most Improved</b><span>Academic award</span></div><span class="mono">School</span></li>
+        <li><div><b>GE Award</b><span>GE Summer Programme, Kyrgyzstan</span></div><span class="mono">2025</span></li>
+        <li><div><b>JP Morgan job simulation</b><span>Forage virtual job simulation, certificate of completion</span></div><span class="mono">2025</span></li>
+        <li><div><b>Fidelity International job simulation</b><span>Forage virtual job simulation, certificate of completion</span></div><span class="mono">Forage</span></li>
+        <li><div><b>Beat a chess grandmaster</b><span>Chess</span></div><span class="mono">Chess</span></li>
+      </ul>
+      <div class="beyond">
+        <div class="edu rv">
+          <span class="ico bcard-ico" style="border-radius:14px;display:grid;place-items:center"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5z" /><path d="M6 11v5c3 2 9 2 12 0v-5" /></svg></span>
+          <div><h4>IB Diploma Programme</h4><p>The Aga Khan Academy, Mombasa · Class of 2027</p></div>
+        </div>
+        <div class="bcard rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="9" r="6" /><path d="m13.5 13.5 6 6" /><circle cx="19" cy="5" r="1.5" /></svg></span><h4>Padel</h4><p>Competing at club level in Mombasa since 2024.</p></div>
+        <div class="bcard rv" style="--d:.06s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="10" cy="10" r="6" /><path d="m14.5 14.5 5 5" /></svg></span><h4>Table tennis</h4><p>Inter-school tournaments and the Congo Olympics in Kinshasa, 2021 to 2024.</p></div>
+        <div class="bcard rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l-1 4h-4zM8 21h8M10 7l-2 6h8l-2-6M7 17h10v4H7z" /></svg></span><h4>Chess</h4><p>Where my first venture started, and still a favourite.</p></div>
+        <div class="bcard rv" style="--d:.06s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6" /></svg></span><h4>Markets &amp; investing</h4><p>Private equity, public markets and how good businesses are valued.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== GALLERY ============================== -->
+<section id="gallery" class="on-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="idx rv"><b>09</b><i></i><span class="label">Gallery</span></p>
+        <h2 class="h2 fx">Moments from the <em>work</em>.</h2>
+      </div>
+      <p class="lead rv">Projects, ventures, community work and everything in between. Tap any photo to open it.</p>
+    </div>
+    <div class="gal-filter rv" role="group" aria-label="Filter photos" id="galFilter"></div>
+    <div class="gallery" id="galGrid"></div>
+  </div>
+</section>
 
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <span>&copy; <span id="year"></span> Avi Dharani</span>
-    <span class="footer-made">Built in Mombasa, Kenya</span>
+<!-- ============================== CONTACT / FOOTER ============================== -->
+<footer class="foot" id="contact">
+  <svg class="ghost-mark" viewBox="0 0 66 64" aria-hidden="true"><use href="#mark" /></svg>
+  <div class="wrap">
+    <p class="label" style="color:var(--on-ink-2);margin-bottom:24px">10 · Contact</p>
+    <h2 class="big fx" data-radius="240">Let's build something <em>useful</em>.</h2>
+    <div class="foot-cta">
+      <a class="btn btn-ember" href="mailto:avidharani110@gmail.com">Email me <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="assets/docs/avi-dharani-resume.pdf" target="_blank" rel="noopener">Download résumé <span class="arr ne">↗</span></a>
+    </div>
+    <div class="foot-grid">
+      <div><span class="label">Write to me</span><a class="mailbig" href="mailto:avidharani110@gmail.com">avidharani110@gmail.com</a><p style="color:var(--on-ink-2);margin-top:12px">Universities, clients, collaborators or anyone curious. I usually reply within a day.</p></div>
+      <div><span class="label">Elsewhere</span><a href="https://www.linkedin.com/in/avi-dharani-b0a837292/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://digital-growth-partner-azure.vercel.app/" target="_blank" rel="noopener">A&amp;F Ventures ↗</a><a href="https://fuelsave-website.vercel.app/" target="_blank" rel="noopener">Fuel2Save ↗</a><a href="https://earthpulse.africa" target="_blank" rel="noopener">EarthPulse ↗</a><a href="https://binman.app" target="_blank" rel="noopener">BINMAN ↗</a></div>
+      <div><span class="label">Based in</span><p>Mombasa, Kenya</p><p style="color:var(--on-ink-2)">Working across Kenya and the DRC</p></div>
+    </div>
+    <div class="foot-base"><span>© <span id="yr">2026</span> Avi Dharani</span><a href="#top" class="to-top">Back to top ↑</a></div>
   </div>
 </footer>
 
-<div class="vmodal" id="vmodal">
-  <button class="vmodal-close" id="vmodalClose" aria-label="Close">&times;</button>
-  <video id="vmodalVideo" controls playsinline></video>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" aria-label="Close">✕</button>
+  <button class="lb-prev" aria-label="Previous">←</button>
+  <button class="lb-next" aria-label="Next">→</button>
+  <div class="lb-media" id="lbMedia"></div>
+  <p id="lbCap"></p>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
-<script src="js/main.js"></script>
+<script src="assets/site.js"></script>
+<script type="module" src="assets/globe.js"></script>
 </body>
 </html>

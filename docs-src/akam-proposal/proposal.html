@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>Reading Beyond the Credit File: An Intern Proposal to AKAM | Avi Dharani</title>
+<meta name="author" content="Avi Dharani" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0f1110;
+    --ink2: #2a2c29;
+    --paper: #f3f0e8;
+    --paper2: #e9e4d8;
+    --ember: #ff5a1f;
+    --ember-ink: #c23f0c;
+    --muted: #6a6a63;
+    --line: #dcd6c8;
+    --amber: #fff1d6;
+    --amber-ink: #7a5310;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: Inter, Arial, sans-serif; color: var(--ink2); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .page { position: relative; width: 210mm; height: 297mm; padding: 22mm 20mm 22mm; overflow: hidden; background: #fff; page-break-after: always; break-after: page; }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .run-head { position: absolute; top: 9mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; align-items: center; font-size: 7.5pt; color: var(--muted); }
+  .run-head span { display: flex; align-items: center; gap: 2.2mm; }
+  .run-head svg { height: 5.5mm; width: 5.5mm; }
+  .run-foot { position: absolute; bottom: 9mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; padding-top: 2.5mm; border-top: 0.3mm solid var(--line); font-size: 7.3pt; color: var(--muted); }
+
+  h1, h2, h3 { font-family: 'Bricolage Grotesque', Inter, sans-serif; color: var(--ink); line-height: 1.12; }
+  h2 { font-size: 19pt; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4mm; }
+  h2 .no { display: block; font-family: Inter, sans-serif; font-size: 7.6pt; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ember-ink); margin-bottom: 1.6mm; }
+  h3 { font-size: 11pt; font-weight: 700; margin: 5mm 0 1.5mm; }
+  p { font-size: 9.5pt; line-height: 1.62; text-align: justify; margin-bottom: 2.6mm; }
+  .lead { font-size: 10.8pt; line-height: 1.6; color: var(--ink); font-weight: 500; text-align: left; }
+  ul { margin: 0 0 3mm 5mm; }
+  li { font-size: 9.4pt; line-height: 1.58; margin-bottom: 1.3mm; padding-left: 1mm; }
+  strong { font-weight: 600; color: var(--ink); }
+  em.s { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 1.12em; color: var(--ember-ink); }
+  .section { margin-bottom: 7mm; }
+
+  /* Cover */
+  .cover { background: var(--ink); color: #fff; padding: 0; }
+  .cover-inner { position: absolute; inset: 0; padding: 22mm 20mm; display: flex; flex-direction: column; }
+  .cover-brand { display: flex; align-items: center; gap: 3.2mm; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12pt; font-weight: 600; }
+  .cover-brand svg { height: 11mm; width: 11mm; }
+  .cover-kicker { margin-top: 32mm; font-size: 8.6pt; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ember); }
+  .cover h1 { margin-top: 5mm; font-size: 42pt; font-weight: 800; line-height: 1; letter-spacing: -0.035em; color: #fff; max-width: 125mm; }
+  .cover h1 em { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; letter-spacing: -0.01em; color: var(--ember); }
+  .cover-sub { margin-top: 7mm; max-width: 128mm; font-size: 11.6pt; line-height: 1.55; color: rgba(255,255,255,0.82); text-align: left; }
+  .cover-art { position: absolute; right: -30mm; bottom: 58mm; width: 120mm; height: 120mm; }
+  .cover-meta { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm; padding-top: 6mm; border-top: 0.3mm solid rgba(255,255,255,0.18); position: relative; z-index: 1; }
+  .cover-meta dt { font-size: 6.8pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ember); }
+  .cover-meta dd { margin-top: 1.2mm; font-size: 8.8pt; line-height: 1.45; color: #fff; }
+  .cover-status { display: inline-block; margin-top: 7mm; padding: 1.6mm 4mm; border-radius: 10mm; background: var(--amber); color: var(--amber-ink); font-size: 7.8pt; font-weight: 600; letter-spacing: 0.03em; position: relative; z-index: 1; align-self: flex-start; }
+
+  /* Components */
+  .glance { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin: 5mm 0 8mm; }
+  .glance div { padding: 4mm; border-radius: 3mm; background: var(--paper); }
+  .glance b { display: block; font-size: 6.8pt; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ember-ink); margin-bottom: 1.5mm; }
+  .glance span { display: block; font-size: 8.9pt; line-height: 1.5; color: var(--ink); font-weight: 500; }
+
+  .callout { margin: 4mm 0 5mm; padding: 4.5mm 5.5mm; border-left: 1mm solid var(--ember); border-radius: 0 3mm 3mm 0; background: var(--paper); }
+  .callout p { margin: 0; color: var(--ink); text-align: left; font-family: 'Instrument Serif', serif; font-size: 13pt; line-height: 1.35; }
+  .note { margin-top: 3mm; padding: 3mm 4mm; border-radius: 2.5mm; background: var(--amber); }
+  .note p { margin: 0; font-size: 8.4pt; color: var(--amber-ink); text-align: left; }
+
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 4mm; }
+  .trio div { padding: 4.5mm; border-radius: 3mm; border: 0.3mm solid var(--line); }
+  .trio i { display: block; font-style: normal; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20pt; font-weight: 800; color: var(--ember); line-height: 1; }
+  .trio b { display: block; margin-top: 2mm; font-size: 10pt; color: var(--ink); font-family: 'Bricolage Grotesque', sans-serif; }
+  .trio span { display: block; margin-top: 1.4mm; font-size: 8.6pt; line-height: 1.52; color: var(--ink2); }
+
+  .ideas { display: grid; gap: 4mm; margin-top: 3mm; }
+  .idea { display: grid; grid-template-columns: 12mm 1fr; gap: 4mm; padding: 4.5mm; border-radius: 3mm; background: var(--paper); }
+  .idea .k { display: grid; place-items: center; width: 12mm; height: 12mm; border-radius: 3mm; background: var(--ink); color: #fff; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 13pt; }
+  .idea h3 { margin: 0 0 1.4mm; font-size: 10.6pt; }
+  .idea p { margin: 0; font-size: 8.9pt; text-align: left; }
+  .idea .how { margin-top: 1.8mm; font-size: 8.2pt; color: var(--muted); }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 3mm; }
+  th { text-align: left; font-size: 7.2pt; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: var(--ink); padding: 2.6mm 3mm; }
+  th:first-child { border-radius: 2mm 0 0 0; }
+  th:last-child { border-radius: 0 2mm 0 0; }
+  td { vertical-align: top; font-size: 8.5pt; line-height: 1.48; padding: 2.4mm 3mm; border-bottom: 0.3mm solid var(--line); }
+  td:first-child { width: 32%; color: var(--ink); font-weight: 600; }
+  tr:nth-child(even) td { background: #faf8f3; }
+
+  .example { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 3mm; }
+  .example div { padding: 4mm; border-radius: 3mm; border: 0.3mm solid var(--line); }
+  .example b { display: block; font-size: 6.8pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  .example strong { display: block; margin-top: 1mm; font-family: 'Bricolage Grotesque', sans-serif; font-size: 13pt; }
+  .example .bad strong { color: #9b2c16; }
+  .example .good strong { color: #1f6a47; }
+  .example span { display: block; margin-top: 1mm; font-size: 8.5pt; line-height: 1.5; }
+
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-top: 4mm; }
+  .timeline div { position: relative; padding: 6mm 3mm 0 0; border-top: 0.6mm solid var(--ink); }
+  .timeline div::before { content: ''; position: absolute; top: -2mm; left: 0; width: 3.4mm; height: 3.4mm; border-radius: 50%; background: var(--ember); }
+  .timeline b { display: block; font-size: 6.8pt; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ember-ink); }
+  .timeline strong { display: block; margin-top: 1.2mm; font-size: 9.6pt; }
+  .timeline span { display: block; margin-top: 1mm; font-size: 8.4pt; line-height: 1.5; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 3mm; }
+  .panel { padding: 5mm; border-radius: 3mm; background: var(--paper); }
+  .panel h3 { margin-top: 0; }
+  .panel ul { margin-bottom: 0; }
+
+  .cycle { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 4mm; border: 0.3mm solid var(--line); border-radius: 3mm; overflow: hidden; }
+  .cycle div { padding: 4mm; border-right: 0.3mm solid var(--line); }
+  .cycle div:last-child { border-right: 0; }
+  .cycle b { display: block; font-size: 6.8pt; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  .cycle strong { display: block; margin-top: 1mm; font-family: 'Bricolage Grotesque', sans-serif; font-size: 11pt; }
+  .cycle span { display: inline-block; margin: 2mm 1mm 0 0; padding: 0.6mm 2.2mm; border-radius: 5mm; background: var(--ink); color: #fff; font-size: 7.4pt; font-weight: 600; }
+  .cycle span.o { background: var(--paper2); color: var(--muted); }
+  .contact { margin-top: 8mm; padding: 7mm; border-radius: 4mm; background: var(--ink); color: #fff; display: grid; grid-template-columns: 1.2fr 1fr; gap: 6mm; align-items: center; }
+  .contact h3 { color: #fff; font-size: 14pt; margin: 0 0 2mm; }
+  .contact p { color: rgba(255,255,255,0.8); margin: 0; text-align: left; }
+  .contact dl { display: grid; gap: 2.5mm; }
+  .contact dt { font-size: 6.8pt; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ember); }
+  .contact dd { font-size: 9.2pt; color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- Logo mark, reused in headers -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 66 64">
+    <path fill="currentColor" d="M21 10H28.5L14.5 54H7Z"/><path fill="currentColor" d="M17 36H25V42H17Z"/>
+    <path fill="currentColor" fill-rule="evenodd" d="M24 10H32C45.3 10 56 19.8 56 32S45.3 54 32 54H24ZM31 17V47H32C41.4 47 49 40.3 49 32S41.4 17 32 17Z"/>
+    <rect x="57.5" y="47" width="7" height="7" fill="#ff5a1f"/>
+  </symbol>
+</svg>
+
+<!-- 1 · Cover -->
+<section class="page cover">
+  <svg class="cover-art" viewBox="0 0 200 200" aria-hidden="true">
+    <g fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="0.6">
+      <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="76"/><circle cx="100" cy="100" r="56"/><circle cx="100" cy="100" r="36"/>
+    </g>
+    <path d="M4 100 H196" stroke="rgba(255,90,31,0.55)" stroke-width="0.8"/>
+    <g fill="rgba(255,255,255,0.55)"><circle cx="40" cy="70" r="2.2"/><circle cx="64" cy="58" r="2.2"/><circle cx="92" cy="44" r="2.2"/><circle cx="130" cy="62" r="2.2"/></g>
+    <g fill="#ff5a1f"><circle cx="52" cy="128" r="3"/><circle cx="84" cy="146" r="3"/><circle cx="118" cy="156" r="3"/><circle cx="150" cy="138" r="3"/><circle cx="170" cy="118" r="3"/></g>
+  </svg>
+  <div class="cover-inner">
+    <div class="cover-brand"><svg style="color:#fff"><use href="#mark"/></svg> Avi Dharani</div>
+    <p class="cover-kicker">Internship proposal · Aga Khan Agency for Microfinance</p>
+    <h1>Reading beyond the <em>credit file</em></h1>
+    <p class="cover-sub">AI-supported ideas for working-capital lending, drawn from a five-week remote internship studying First MicroFinanceBank Afghanistan.</p>
+    <span class="cover-status">Intern proposal for discussion · Not implemented · Not an AKAM publication</span>
+    <dl class="cover-meta">
+      <div><dt>Prepared by</dt><dd>Avi Dharani<br/>Remote intern, IB Diploma student</dd></div>
+      <div><dt>Prepared for</dt><dd>Aga Khan Agency for Microfinance teams I worked alongside</dd></div>
+      <div><dt>Edition</dt><dd>Public edition, September 2026</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- 2 · Summary and context -->
+<section class="page">
+  <div class="run-head"><span><svg style="color:#0f1110"><use href="#mark"/></svg> Avi Dharani</span><span>Intern proposal to AKAM</span></div>
+
+  <div class="section">
+    <h2><span class="no">01 · Executive summary</span>The loan is decided by what the file can't see</h2>
+    <p class="lead">During my internship I studied how a microfinance bank decides whether to lend working capital to people who have no collateral, no credit score and no formal financial history.</p>
+    <p>I expected the missing data to be the main problem. What I found more interesting was what replaced it. Harvest timing, exchange-rate exposure and a borrower’s standing in her community often decided whether a loan could be repaid, yet none of these sits neatly in a conventional credit file.</p>
+    <p>This proposal sets out three small, AI-supported tools that could help loan officers record and use that information more consistently, together with the safeguards I think any such tool would need. They are ideas for discussion. None has been built, tested or adopted by AKAM or First MicroFinanceBank, and every lending decision would stay with trained staff.</p>
+    <div class="glance">
+      <div><b>What</b><span>Three assistive tools for loan officers, plus ideas for internal teams</span></div>
+      <div><b>Who it serves</b><span>Borrowers with seasonal or informal income, and the staff who assess them</span></div>
+      <div><b>Status</b><span>An intern’s proposal, written for learning and discussion</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><span class="no">02 · Context</span>Where I worked</h2>
+    <p>The Aga Khan Agency for Microfinance (AKAM) is part of the Aga Khan Development Network. It supports microfinance institutions that provide loans, savings and other financial services to families and small businesses that conventional banks tend to exclude.</p>
+    <p>My work focused on one of those institutions, <strong>First MicroFinanceBank Afghanistan (FMFB-A)</strong>, which has operated since 2004 and whose shareholders are development institutions, including AKAM, the Aga Khan Foundation, KfW and IFC. I looked specifically at <strong>working-capital lending</strong>: short-term loans that let farmers, traders and small business owners buy the seeds, stock or materials they need before they are paid.</p>
+    <p>The internship was remote. Over video calls, FMFB-A staff walked us through the bank’s history, its results and live projects, and I spent time with HR, marketing and product colleagues learning how each team works. Between sessions I researched the challenges they described and prepared presentations exploring where AI might help.</p>
+  </div>
+
+  <div class="run-foot"><span>Independent intern proposal · Not an AKAM or FMFB-A publication</span><span>2</span></div>
+</section>
+
+<!-- 3 · Findings -->
+<section class="page">
+  <div class="run-head"><span><svg style="color:#0f1110"><use href="#mark"/></svg> Avi Dharani</span><span>Intern proposal to AKAM</span></div>
+
+  <div class="section">
+    <h2><span class="no">03 · What I observed</span>Three things the data doesn’t capture</h2>
+    <p>A conventional lender relies on collateral, a credit score and financial statements. The borrowers I studied typically had none of them. The evidence that mattered came from elsewhere.</p>
+    <div class="trio">
+      <div><i>01</i><b>Harvest timing</b><span>Seasonal income revealed repayment capacity that monthly cash-flow analysis hid. A farmer can look unable to pay month by month yet repay easily after harvest. The problem was the schedule, not the borrower.</span></div>
+      <div><i>02</i><b>Exchange rates</b><span>When a borrower’s inputs are imported, a weaker currency squeezes her margin without anything in her business changing. A loan that looks sound on paper can quietly become unaffordable.</span></div>
+      <div><i>03</i><b>Reputation</b><span>A borrower’s standing in her community carried economic value that no balance sheet records. References and a record of repaying informal loans worked as a kind of <em class="s">social collateral</em>.</span></div>
+    </div>
+    <div class="callout"><p>Is financial analysis about extracting the right answer from the data, or recognising what the data fails to capture?</p></div>
+  </div>
+
+  <div class="section">
+    <h3>A worked example (hypothetical figures)</h3>
+    <p>Farida borrows 36,000 afghanis for seeds and supplies. Most of her income arrives in the weeks after harvest. The same borrower, with the same loan, gives two different answers depending on how the repayments are structured.</p>
+    <div class="example">
+      <div class="bad"><b>Equal monthly instalments</b><strong>Looks like a decline</strong><span>Several months show a shortfall, because repayments fall due before her crop is sold.</span></div>
+      <div class="good"><b>Harvest-aligned repayments</b><strong>Looks like an approval</strong><span>Payments are scheduled around the months when her income actually arrives.</span></div>
+    </div>
+    <div class="note"><p>Farida is a hypothetical borrower used to illustrate the pattern. She is not a real FMFB-A client, and the figures are not bank data.</p></div>
+  </div>
+
+  <div class="run-foot"><span>Independent intern proposal · Not an AKAM or FMFB-A publication</span><span>3</span></div>
+</section>
+
+<!-- 4 · Ideas -->
+<section class="page">
+  <div class="run-head"><span><svg style="color:#0f1110"><use href="#mark"/></svg> Avi Dharani</span><span>Intern proposal to AKAM</span></div>
+
+  <div class="section">
+    <h2><span class="no">04 · Proposed ideas</span>Tools that help staff see more, not decide for them</h2>
+    <p>Each idea is deliberately small. The aim is to help a loan officer record and weigh evidence that already exists, not to replace judgement with a score.</p>
+    <div class="ideas">
+      <div class="idea"><span class="k">A</span><div><h3>A seasonal cash-flow view</h3><p>A simple assistant that helps an officer map a borrower’s income calendar, such as harvest, trading season or remittance months, and compare equal monthly instalments with a schedule aligned to when money actually arrives.</p><p class="how">Why it matters: it turns “can she pay every month?” into the more useful “when can she pay?”</p></div></div>
+      <div class="idea"><span class="k">B</span><div><h3>Structured notes for soft information</h3><p>Loan officers already hear about references, group membership and informal repayment history. An AI-supported template could turn interview notes into a consistent, reviewable summary, so that evidence is recorded the same way across branches instead of being lost.</p><p class="how">Why it matters: social collateral only helps a borrower if it is written down and weighed fairly.</p></div></div>
+      <div class="idea"><span class="k">C</span><div><h3>A currency-exposure flag</h3><p>A prompt that asks whether a borrower’s key inputs are imported and shows how her repayment capacity would change if the local currency weakened by, say, 10 to 30 percent.</p><p class="how">Why it matters: it makes a hidden risk visible before the loan is agreed, when the structure can still change.</p></div></div>
+      <div class="idea"><span class="k">D</span><div><h3>Support for internal teams</h3><p>From my sessions with HR, marketing and product colleagues: AI-assisted first drafts of customer education material in local languages, reviewed by staff before use; a searchable guide to internal policies for new employees; and summaries of customer feedback that product teams can act on.</p><p class="how">Why it matters: small time savings let staff spend more of their day with customers.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Where each lending idea fits in the loan cycle</h3>
+    <div class="cycle">
+      <div><b>Stage 1</b><strong>Apply</strong><span>B</span></div>
+      <div><b>Stage 2</b><strong>Assess</strong><span>A</span><span>B</span><span>C</span></div>
+      <div><b>Stage 3</b><strong>Structure</strong><span>A</span><span>C</span></div>
+      <div><b>Stage 4</b><strong>Repay</strong><span class="o">Officer follow-up</span></div>
+    </div>
+    <p style="margin-top:3mm;font-size:8.6pt;color:var(--muted)">Assessment is where my internship work sat, and where most of the missing evidence has to be found.</p>
+  </div>
+
+  <div class="run-foot"><span>Independent intern proposal · Not an AKAM or FMFB-A publication</span><span>4</span></div>
+</section>
+
+<!-- 5 · Safeguards and pilot -->
+<section class="page">
+  <div class="run-head"><span><svg style="color:#0f1110"><use href="#mark"/></svg> Avi Dharani</span><span>Intern proposal to AKAM</span></div>
+
+  <div class="section">
+    <h2><span class="no">05 · Safeguards</span>What any tool like this would need</h2>
+    <p>Microfinance exists to include people that other systems leave out. A careless tool could do the opposite, so these principles come before any feature.</p>
+    <table>
+      <thead><tr><th>Principle</th><th>What it means in practice</th></tr></thead>
+      <tbody>
+        <tr><td>People decide</td><td>Tools suggest and summarise. A trained officer makes and signs every lending decision, and can override any suggestion.</td></tr>
+        <tr><td>Fairness first</td><td>No borrower should be penalised for lacking documents. Outputs would be checked regularly for differences between groups, including women and rural borrowers.</td></tr>
+        <tr><td>Privacy and consent</td><td>Collect only what the decision needs, explain to borrowers how their information is used, and keep data within the institution’s own systems.</td></tr>
+        <tr><td>Explainable outputs</td><td>Every suggestion should show the reason behind it in plain language that an officer can repeat to a borrower.</td></tr>
+        <tr><td>Built for the context</td><td>Work in local languages, on low bandwidth and offline where needed, and fit the forms and routines staff already use.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2><span class="no">06 · A cautious first step</span>How the ideas could be tested</h2>
+    <p>If any idea were worth exploring, I would suggest starting small and learning before building anything that affects a real decision.</p>
+    <div class="timeline">
+      <div><b>Step 1</b><strong>Scope</strong><span>Agree one idea, one branch and what a useful result would look like, with the teams involved.</span></div>
+      <div><b>Step 2</b><strong>Prototype</strong><span>Build a simple version using anonymised or past cases only.</span></div>
+      <div><b>Step 3</b><strong>Shadow test</strong><span>Officers use it alongside their normal process, with no effect on decisions.</span></div>
+      <div><b>Step 4</b><strong>Review</strong><span>Compare notes with officers, check for bias, then decide whether to continue or stop.</span></div>
+    </div>
+  </div>
+
+  <div class="run-foot"><span>Independent intern proposal · Not an AKAM or FMFB-A publication</span><span>5</span></div>
+</section>
+
+<!-- 6 · Reflection and author -->
+<section class="page">
+  <div class="run-head"><span><svg style="color:#0f1110"><use href="#mark"/></svg> Avi Dharani</span><span>Intern proposal to AKAM</span></div>
+
+  <div class="section">
+    <h2><span class="no">07 · What I learned</span>The loan didn’t change. Only its structure did.</h2>
+    <p>The most useful lesson of the internship was that a lending decision depends as much on how a loan is structured as on who is borrowing. A repayment schedule, the currency a loan is written in and the way references are recorded can decide who carries the risk, and whether a capable borrower is approved at all.</p>
+    <p>The experience strengthened my interest in how financial institutions and technology can respond to practical needs, and led me towards a new interest in private equity, where assessing a business also means looking beyond reported numbers to understand how durable its cash flows really are.</p>
+    <div class="two">
+      <div class="panel"><h3>What this proposal is</h3><ul><li>A reflection on what I observed as a remote intern</li><li>A set of ideas I explored in presentations to the teams I met</li><li>A starting point for discussion</li></ul></div>
+      <div class="panel"><h3>What it is not</h3><ul><li>An AKAM or FMFB-A document or plan</li><li>A claim that any tool was built or adopted</li><li>A description of any real borrower</li></ul></div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <div><h3>Thank you</h3><p>I am grateful to the AKAM and First MicroFinanceBank Afghanistan colleagues who gave their time to explain their work. Any mistakes in this proposal are my own.</p></div>
+    <dl>
+      <div><dt>Author</dt><dd>Avi Dharani · Mombasa, Kenya</dd></div>
+      <div><dt>Portfolio</dt><dd>avi-dharani.vercel.app</dd></div>
+      <div><dt>Email</dt><dd>avidharani110@gmail.com</dd></div>
+    </dl>
+  </div>
+
+  <div class="run-foot"><span>Independent intern proposal · Not an AKAM or FMFB-A publication</span><span>6</span></div>
+</section>
+
+</body>
+</html>
