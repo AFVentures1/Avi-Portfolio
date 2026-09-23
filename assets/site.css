@@ -631,12 +631,11 @@ section.hero { padding: 0; }
    Award feature + certificates
    ========================================================================== */
 .award { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px); padding: clamp(22px, 3vw, 40px); border-radius: 30px; background: var(--ink); color: var(--on-ink); align-items: center; }
-.award-media { position: relative; padding: 0 12% 12% 0; }
+.award-media { position: relative; }
 .award-team { display: block; width: 100%; border-radius: 20px; overflow: hidden; cursor: zoom-in; transform: rotate(-2deg); transition: transform 0.7s var(--ease); box-shadow: 0 40px 70px -30px rgba(0, 0, 0, 0.8); }
 .award-team img { width: 100%; }
 .award-poster { position: absolute; right: 0; bottom: 0; width: 34%; border-radius: 14px; overflow: hidden; cursor: zoom-in; transform: rotate(5deg); transition: transform 0.7s var(--ease); box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.8); border: 4px solid var(--ink); }
 .award-media:hover .award-team { transform: rotate(0deg) scale(1.01); }
-.award-media:hover .award-poster { transform: rotate(0deg) translate(6%, -4%) scale(1.06); }
 .award-seal { position: absolute; left: -22px; top: -22px; width: 118px; height: 118px; border-radius: 50%; background: var(--ember); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; box-shadow: 0 20px 40px -14px rgba(255, 90, 31, 0.6); }
 .award-seal svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 20s linear infinite; }
 .award-copy .label { color: var(--ember); }

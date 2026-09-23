@@ -399,7 +399,6 @@
   }
   var awardItems = [
     { src: 'assets/media/ep-team.webp', caption: 'The EarthPulse team behind the award' },
-    { src: 'assets/media/ep-ib-award.webp', caption: 'IB Global Youth Action Fund 2026 winner announcement for EarthPulse' },
     { src: 'assets/media/ep-festival-of-hope.webp', caption: 'EarthPulse on IB’s Festival of Hope, Youth in Action' }
   ];
   $$('[data-lb="award"]').forEach(function (b) {
