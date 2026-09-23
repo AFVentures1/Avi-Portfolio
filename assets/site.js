@@ -379,10 +379,25 @@
     });
   });
   (DATA.GALLERY_EXTRA || []).forEach(function (m) { galItems.push(m); });
-  var gal = $('#galGrid'), gf = $('#galFilter'), galShown = galItems.slice();
+  var gal = $('#galGrid'), gf = $('#galFilter'), galShown = galItems.slice(), gModal = $('#galModal');
   function renderGal(f) {
     galShown = galItems.filter(function (g) { return f === 'all' || g.group === f; });
     gal.innerHTML = galShown.map(tileHTML).join('');
+    $('#gmCount').textContent = galShown.length + ' photos & videos';
+  }
+  function openGallery(f) {
+    f = f || 'all';
+    $$('button', gf).forEach(function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-f') === f); });
+    renderGal(f);
+    gModal.hidden = false;
+    document.documentElement.classList.add('gm-open');
+    $('.gm-scroll', gModal).scrollTop = 0;
+    $('#galClose').focus();
+  }
+  function closeGallery() {
+    gModal.hidden = true;
+    document.documentElement.classList.remove('gm-open');
+    $('#galOpen').focus();
   }
   if (gal) {
     var counts = {};
@@ -396,28 +411,57 @@
       $$('button', gf).forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
       renderGal(b.getAttribute('data-f'));
     });
-    renderGal('all');
     bindTiles(gal, function () { return galShown; });
+
+    // on-page preview: a handful of favourites, last tile opens everything
+    var PICK = ['chess-group', 'ep-team', 'af-qaffee-team', 'zb-waffles', 'yec-intro'];
+    var prev = PICK.map(function (k) { return galItems.filter(function (g) { return g.src.indexOf('/' + k + '.') > -1; })[0]; }).filter(Boolean);
+    var pv = $('#galPreview');
+    pv.innerHTML = prev.map(function (g, i) {
+      var last = i === prev.length - 1;
+      return '<button type="button" class="gp' + (last ? ' more' : '') + '" data-i="' + i + '"' + (last ? ' data-more="+' + (galItems.length - prev.length + 1) + '"' : '') + ' aria-label="' + (last ? 'View all photos' : 'Open: ' + esc(g.caption)) + '"><img src="' + g.src + '" alt="' + esc(g.caption) + '" loading="lazy"></button>';
+    }).join('');
+    pv.addEventListener('click', function (e) {
+      var b = e.target.closest('.gp');
+      if (!b) return;
+      if (b.classList.contains('more')) openGallery('all');
+      else openLightbox(prev.slice(0, -1), +b.getAttribute('data-i'));
+    });
+    $('#galCount').textContent = '(' + galItems.length + ')';
+    $('#galCats').textContent = fl.slice(1).map(function (f) { return f[1] + ' ' + f[2]; }).join(' · ');
+    $('#galOpen').addEventListener('click', function () { openGallery('all'); });
+    $('#galClose').addEventListener('click', closeGallery);
   }
 
   /* ---------------- certificates ---------------- */
-  var certs = $('#certs');
+  var certs = $('#certs'), CERT_SHOW = 8;
   if (certs) {
     certs.innerHTML = DATA.CERTS.map(function (c, i) {
-      var cover = c.img
-        ? '<div class="cv"><img src="' + c.img + '" alt="' + esc(c.title) + ' certificate" loading="lazy"></div>'
+      var imgs = c.imgs || [];
+      var cover = imgs.length
+        ? '<div class="cv"><img src="' + imgs[0] + '" alt="' + esc(c.title) + ' certificate" loading="lazy">' + (imgs.length > 1 ? '<span class="n">' + imgs.length + ' certificates</span>' : '') + '</div>'
         : '<div class="cv plaque"><div class="frame"><svg><use href="#g-' + c.icon + '"/></svg><small>' + esc(c.year) + '</small></div></div>';
-      var inner = cover + '<div class="ct"><span>' + esc(c.year) + '</span><h4>' + esc(c.title) + '</h4><p>' + esc(c.issuer) + '</p></div>';
-      if (c.file) return '<a class="cert rv" style="--d:' + (i % 4) * 0.06 + 's" href="' + c.file + '" target="_blank" rel="noopener">' + inner + '</a>';
-      if (c.img) return '<button type="button" class="cert rv" style="--d:' + (i % 4) * 0.06 + 's" data-cert="' + i + '">' + inner + '</button>';
-      return '<div class="cert rv" style="--d:' + (i % 4) * 0.06 + 's">' + inner + '</div>';
+      var inner = cover + '<div class="ct"><span>' + esc(c.year) + (c.star ? ' · Highlight' : '') + '</span><h4>' + esc(c.title) + '</h4><p>' + esc(c.issuer) + '</p></div>';
+      var attrs = ' class="cert rv' + (c.star ? ' star' : '') + '" style="--d:' + (i % 4) * 0.06 + 's"' + (i >= CERT_SHOW ? ' hidden' : '');
+      if (imgs.length) return '<button type="button"' + attrs + ' data-cert="' + i + '">' + inner + '</button>';
+      if (c.file) return '<a' + attrs + ' href="' + c.file + '" target="_blank" rel="noopener">' + inner + '</a>';
+      return '<div' + attrs + '>' + inner + '</div>';
     }).join('');
     certs.addEventListener('click', function (e) {
       var b = e.target.closest('[data-cert]');
       if (!b) return;
       var c = DATA.CERTS[+b.getAttribute('data-cert')];
-      openLightbox([{ src: c.img, caption: c.title + ' · ' + c.issuer }], 0);
+      openLightbox(c.imgs.map(function (src) { return { src: src, caption: c.title + ' · ' + c.issuer + (c.note ? '. ' + c.note : '') }; }), 0);
     });
+    var more = $('#certsMore');
+    if (DATA.CERTS.length > CERT_SHOW) {
+      more.hidden = false;
+      more.firstChild.textContent = 'Show all ' + DATA.CERTS.length + ' certificates ';
+      more.addEventListener('click', function () {
+        $$('.cert[hidden]', certs).forEach(function (c) { c.hidden = false; c.classList.add('in'); });
+        more.hidden = true;
+      });
+    }
   }
   var awardItems = [
     { src: 'assets/media/ep-team.webp', caption: 'The EarthPulse team behind the award' },
@@ -644,6 +688,7 @@
       if (e.key === 'ArrowRight') lbStep(1);
       return;
     }
+    if (gModal && !gModal.hidden) { if (e.key === 'Escape') closeGallery(); return; }
     if (modal && !modal.hidden) {
       if (e.key === 'Escape') closeActivity();
       if (e.key === 'ArrowLeft') stepActivity(-1);

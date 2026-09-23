@@ -32,7 +32,11 @@ window.SITE_DATA = (function () {
         { src: I + 'qaffee.webp', w: 1200, h: 750, caption: 'Qaffee Point: ordering website and backend', shot: true },
         { src: S + 'afventures.webp', w: 1200, h: 750, caption: 'The A&F Ventures website', shot: true },
         { src: S + 'massai.webp', w: 1200, h: 750, caption: 'Massai Group: one site for three restaurants', shot: true },
-        { src: S + 'ntv.webp', w: 1200, h: 750, caption: 'Noortaaj Village, Kinshasa: ordering, catering and rewards', shot: true }
+        { src: S + 'ntv.webp', w: 1200, h: 750, caption: 'Noortaaj Village, Kinshasa: ordering, catering and rewards', shot: true },
+        { src: M + 'af-qaffee-team.webp', w: 1226, h: 1280, caption: 'At Qaffee Point with the restaurant team' },
+        { src: M + 'af-client-meeting.webp', w: 1600, h: 1200, caption: 'A client meeting' },
+        { src: M + 'af-qaffee-visit.webp', w: 1200, h: 1600, caption: 'Visiting our client, Qaffee Point' },
+        { src: M + 'af-qaffee-store.webp', w: 1200, h: 1600, caption: 'Qaffee Point, Mombasa' }
       ]
     },
     {
@@ -63,7 +67,7 @@ window.SITE_DATA = (function () {
         'Our work with St. Augustine Secondary, Port Reitz School and Regen Organics connects school learning with community participation and recycling expertise. We installed an Aerobin at school and began diverting organic food waste into it for composting.'
       ],
       did: ['Managing resources and coordinating tasks across the team', 'Reporting progress so the work continues beyond one event', 'Supporting awareness sessions and the school composting set-up'],
-      done: ['USD 2,500 IB Global Youth Action Fund grant awarded to the team (2026)', 'Featured in IB’s Festival of Hope, Youth in Action', 'About 30 children in a practical session', 'An Aerobin composter installed at school'],
+      done: ['USD 2,500 IB Global Youth Action Fund grant awarded to the team (2026)', 'Featured in IB’s Festival of Hope, Youth in Action', 'About 30 children in a practical session', 'An Aerobin composter installed at school', 'DP CAS Award from The Aga Khan Academy, Mombasa, for my EarthPulse contribution (2025–26)'],
       intended: ['Compost for an EarthPulse garden', 'Compost donations to local farmers'],
       links: [['Visit earthpulse.africa', 'https://earthpulse.africa'], ['EarthPulse on IB’s Festival of Hope', 'https://ibo.org/festival-of-hope/youth-in-action/earthpulse---waste-to-worth?contentId=207695'], ['AKDN partnership proposal (PDF)', 'https://earthpulse.africa/documents/earthpulse-akdn-partnership-proposal.pdf']],
       media: [
@@ -72,7 +76,11 @@ window.SITE_DATA = (function () {
         { src: I + 'g-classroom.webp', w: 812, h: 600, caption: 'Leading a session with students in a classroom' },
         { src: I + 'g-fingerprint-tree.webp', w: 1600, h: 1200, caption: 'Students around our fingerprint tree poster on campus' },
         { src: M + 'twister.webp', video: M + 'twister.mp4', w: 960, h: 540, caption: 'A game of Twister during an awareness activity' },
-        { src: M + 'ep-festival-of-hope.webp', w: 1600, h: 713, caption: 'EarthPulse listed on IB’s Festival of Hope, Youth in Action (screenshot)', shot: true }
+        { src: M + 'ep-festival-of-hope.webp', w: 1600, h: 713, caption: 'EarthPulse listed on IB’s Festival of Hope, Youth in Action (screenshot)', shot: true },
+        { src: M + 'ep-sorting.webp', w: 1600, h: 900, caption: 'A waste-sorting activity with students' },
+        { src: M + 'ep-sorting-2.webp', w: 1600, h: 900, caption: 'Sorting recyclables into labelled boxes' },
+        { src: M + 'ep-aerobin.webp', video: M + 'ep-aerobin.mp4', w: 568, h: 320, caption: 'Installing the Aerobin composter at school' },
+        { src: M + 'ep-cas-board.webp', w: 960, h: 1280, caption: 'EarthPulse on the school CAS board' }
       ]
     },
     {
@@ -96,7 +104,7 @@ window.SITE_DATA = (function () {
     {
       id: 'yec', title: 'Youth Enterprise Catalyst', kind: 'School initiative', group: 'community',
       role: 'Founder', when: '2025 – present', where: 'School, Mombasa',
-      status: ['live', 'Weekly'], glyph: 'chart', tone: 'ember',
+      status: ['live', 'Weekly'], cover: M + 'yec-intro.webp', glyph: 'chart', tone: 'ember',
       lead: 'Weekly two-hour sessions on financial literacy, investing and entrepreneurship.',
       body: [
         'Through YEC, I help students explore financial literacy, investing and entrepreneurship in weekly two-hour sessions. We use learning materials, investment simulations and discussions to connect financial concepts with practical decisions.',
@@ -104,7 +112,12 @@ window.SITE_DATA = (function () {
       ],
       did: ['Planning and running the weekly sessions', 'Choosing resources: Coursera and edX (paid), Investopedia and simulators (free)', 'Pointing students to Forage virtual job simulations, which are practice tasks with a completion certificate'],
       links: [],
-      media: []
+      media: [
+        { src: M + 'yec-intro.webp', w: 1600, h: 1200, caption: 'An early YEC session: an introduction to investing and trading' },
+        { src: M + 'yec-session.webp', w: 1600, h: 1200, caption: 'A YEC session in progress' },
+        { src: M + 'yec-session-2.webp', w: 1600, h: 1200, caption: 'Students presenting in a YEC session' },
+        { src: M + 'yec-session-3.webp', w: 1600, h: 1200, caption: 'Discussion during a YEC session' }
+      ]
     },
     {
       id: 'akam', title: 'Aga Khan Agency for Microfinance', kind: 'Internship', group: 'internships',
@@ -120,7 +133,9 @@ window.SITE_DATA = (function () {
       links: [['Read my proposal (PDF)', D + 'akam-internship-proposal.pdf'], ['Interactive reflection talk', 'https://internship-presentation-alpha.vercel.app']],
       media: [
         { src: M + 'akam-session.webp', w: 1400, h: 788, caption: 'A video session with the First MicroFinanceBank Afghanistan team' },
-        { src: D + 'akam-internship-proposal-cover.webp', w: 640, h: 905, caption: 'My proposal: Reading beyond the credit file', shot: true }
+        { src: D + 'akam-internship-proposal-cover.webp', w: 640, h: 905, caption: 'My proposal: Reading beyond the credit file', shot: true },
+        { src: M + 'akam-banking-session.webp', w: 1600, h: 850, caption: 'A session on the bank’s operations and loan products' },
+        { src: M + 'akam-hr-session.webp', w: 1600, h: 750, caption: 'A session with the FMFB-A HR team on conventional and Islamic banking' }
       ]
     },
     {
@@ -142,21 +157,32 @@ window.SITE_DATA = (function () {
     {
       id: 'chess', title: 'East African Chess Academy', kind: 'Education', group: 'community',
       role: 'Co-founder, co-instructor and finance lead', when: '2021 – 2024 · four summers', where: 'Kinshasa, DRC',
-      status: ['done', 'Completed'], glyph: 'knight', tone: 'ink',
+      status: ['done', 'Completed'], cover: M + 'chess-group.webp', glyph: 'knight', tone: 'ink',
       lead: 'Structured summer coaching for about 50 young players aged 9 to 16.',
       body: [
         'After noticing young people’s enthusiasm for chess in Kinshasa’s parks, mosques and public spaces, I joined my cousin in creating structured summer coaching. Across four summers, approximately 50 individual participants aged 9 to 16 gained access to instruction, equipment and organised tournaments. Many returned in later years.',
         'We assessed participants’ abilities and adapted sessions for different levels. I gave focused support to a talented student who lacked confidence in timed games. He became more comfortable playing with a clock and later achieved success in interschool competition.'
       ],
       did: ['Co-teaching sessions, rotating coaching with videos and peer strategy discussions', 'Running the finances: fees covered equipment and practical costs', 'Four seven-day programmes, two to three hours a day'],
-      done: ['About 50 individual participants across four summers', 'Organised tournaments each summer'],
+      done: ['About 50 individual participants across four summers', 'Organised tournaments each summer', 'I also compete: East African Junior Chess Championship (2025), a simul with a National Master (2024)'],
       links: [],
-      media: []
+      media: [
+        { src: M + 'chess-group.webp', w: 1280, h: 960, caption: 'The academy’s players at the end of a summer session' },
+        { src: M + 'chess-coaching.webp', w: 1280, h: 960, caption: 'Coaching a game' },
+        { src: M + 'chess-coaching-2.webp', w: 960, h: 1280, caption: 'Helping a player think through a position' },
+        { src: M + 'chess-game.webp', w: 1280, h: 960, caption: 'A tournament round' },
+        { src: M + 'chess-session.webp', w: 1280, h: 960, caption: 'A summer session in Kinshasa' },
+        { src: M + 'chess-hall.webp', w: 1280, h: 960, caption: 'Players from beginners to experienced' },
+        { src: M + 'chess-match.webp', w: 1280, h: 960, caption: 'A game between two of our players' },
+        { src: M + 'chess-eajcc.webp', w: 1280, h: 960, caption: 'Competing at the East African Junior Chess Championship, Mombasa, January 2025' },
+        { src: M + 'chess-simul.webp', w: 1200, h: 1600, caption: 'A chess simul with Algerian National Master Yala Lyes, May 2024' },
+        { src: M + 'chess-akam-swiss.webp', w: 960, h: 1280, caption: 'The Aga Khan Academy chess Swiss tournament, September 2024' }
+      ]
     },
     {
       id: 'into-the-woods', title: 'Into the Woods', kind: 'School production', group: 'community',
       role: 'Finance team', when: '2026', where: 'School, Mombasa',
-      status: ['done', 'Completed'], glyph: 'mask', tone: 'moss',
+      status: ['done', 'Completed'], cover: M + 'itw-shirt.webp', glyph: 'mask', tone: 'moss',
       lead: 'Sponsorship, budgeting and licensing behind our school musical.',
       body: [
         'I helped make our school’s production of Into the Woods possible through sponsorship outreach, budgeting, allocation and licensing work. I personally secured 50% of the funds raised.',
@@ -165,7 +191,9 @@ window.SITE_DATA = (function () {
       did: ['Sponsorship outreach and sponsor commitments', 'Budgeting and allocation', 'Licensing work'],
       done: ['Personally secured 50% of the funds raised'],
       links: [],
-      media: []
+      media: [
+        { src: M + 'itw-shirt.webp', w: 1200, h: 1600, caption: 'Our Finance Team shirt, with the production’s sponsors' }
+      ]
     },
     {
       id: 'waffle-chips', title: 'Waffle Chips', kind: 'Product', group: 'ventures',
@@ -184,7 +212,7 @@ window.SITE_DATA = (function () {
     {
       id: 'zawadi', title: 'Zawadi Bazaar', kind: 'School enterprise', group: 'ventures',
       role: 'Co-lead · four stalls', when: '2024 – 2025', where: 'School, Mombasa',
-      status: ['done', 'Completed'], glyph: 'stall', tone: 'paper',
+      status: ['done', 'Completed'], cover: M + 'zb-waffles.webp', glyph: 'stall', tone: 'paper',
       lead: 'A four-stall school operation, with half of net proceeds going to sustainability initiatives.',
       body: [
         'I co-led a four-stall operation at our school’s Zawadi Bazaar, coordinating suppliers, stock, payment systems and sales tracking.',
@@ -193,12 +221,18 @@ window.SITE_DATA = (function () {
       did: ['Supplier coordination and stock', 'Payment systems and sales tracking'],
       done: ['About KES 180,000 in sales', 'Half of net proceeds (not of sales) to sustainability initiatives'],
       links: [],
-      media: []
+      media: [
+        { src: M + 'zb-waffles.webp', w: 960, h: 1280, caption: 'Making bubble waffles at our stall' },
+        { src: M + 'zb-boba-poster.webp', w: 1024, h: 1536, caption: 'Poster for The Boba Stop, one of our four stalls' },
+        { src: M + 'zb-menu.webp', w: 815, h: 1230, caption: 'The Sweet Escape menu' },
+        { src: M + 'zb-clothing-stall.webp', w: 1600, h: 1200, caption: 'The clothing stall' },
+        { src: M + 'zb-stall.webp', w: 960, h: 1280, caption: 'Setting up a stall' }
+      ]
     },
     {
       id: 'ge-summer', title: 'GE Summer Programme', kind: 'Programme abroad', group: 'community',
       role: 'Participant', when: '2025', where: 'Kyrgyzstan',
-      status: ['done', 'Completed'], glyph: 'globe', tone: 'ink',
+      status: ['done', 'Completed'], cover: M + 'ge-group.webp', glyph: 'globe', tone: 'ink',
       lead: 'Workshops on technology, AI and entrepreneurship with an international group.',
       body: [
         'During the GE Summer Programme in Kyrgyzstan, I collaborated with an international group on technology, AI and entrepreneurship activities. We worked with SPCE schools and local communities to deliver interactive workshops introducing these topics.',
@@ -206,24 +240,39 @@ window.SITE_DATA = (function () {
       ],
       did: ['Planning and delivering interactive workshops', 'Collaborating with an international group'],
       links: [],
-      media: []
+      media: [
+        { src: M + 'ge-group.webp', w: 1600, h: 900, caption: 'With the programme cohort' },
+        { src: M + 'ge-presentation.webp', w: 1200, h: 1600, caption: 'Presenting a group task: analysing a business' }
+      ]
     }
   ];
 
   /* Certificates wall. Add `img` (and optionally `file`) when a photo or
      scan of the certificate is ready: put it in assets/media/. */
   var CERTS = [
-    { title: 'Investment Banking Job Simulation', issuer: 'JP Morgan · Forage', year: 'Sept 2025', img: D + 'jpmorgan-investment-banking-job-simulation-cover.webp', file: D + 'jpmorgan-investment-banking-job-simulation.pdf', icon: 'doc' },
+    { title: 'DP CAS Award', issuer: 'The Aga Khan Academy, Mombasa · for EarthPulse', year: '2025 – 26', imgs: [M + 'cert-cas-award.webp'], icon: 'medal', star: true, note: 'For outstanding contributions in a DP CAS project with great impact on the community' },
+    { title: 'Second Honours, three times', issuer: 'The Aga Khan Academy, Mombasa', year: '2024 – 26', imgs: [M + 'cert-second-honours-dp1-s2.webp', M + 'cert-second-honours-dp1-s1.webp', M + 'cert-second-honours-y10.webp'], icon: 'medal' },
+    { title: 'Most Improved', issuer: 'The Aga Khan Academy, Mombasa · DP1', year: '2025 – 26', imgs: [M + 'cert-most-improved.webp'], icon: 'medal' },
+    { title: 'Investment Banking Job Simulation', issuer: 'JP Morgan · Forage', year: 'Sept 2025', imgs: [D + 'jpmorgan-investment-banking-job-simulation-cover.webp'], file: D + 'jpmorgan-investment-banking-job-simulation.pdf', icon: 'doc' },
+    { title: 'East African Junior Chess Championship', issuer: 'Certificate of participation · Mombasa', year: 'Jan 2025', imgs: [M + 'cert-eajcc.webp'], icon: 'knight' },
+    { title: 'Chess simul with a National Master', issuer: 'Algerian National Master Yala Lyes · medal', year: 'May 2024', imgs: [M + 'cert-chess-simul.webp'], icon: 'knight' },
+    { title: 'Chess Swiss Tournament', issuer: 'The Aga Khan Academy · exemplary performance', year: 'Sept 2024', imgs: [M + 'cert-akam-chess-swiss.webp'], icon: 'knight' },
+    { title: 'Science Quiz, first place', issuer: 'English International School, Kinshasa · Grade 7', year: '2022', imgs: [M + 'cert-science-quiz.webp'], icon: 'trophy' },
+    { title: 'Oratorical Competition, second place', issuer: 'English International School, Kinshasa · Grade 8', year: '2023', imgs: [M + 'cert-oratorical.webp'], icon: 'trophy' },
+    { title: 'Academic Proficiency, first place', issuer: 'English International School, Kinshasa', year: '2021 – 22', imgs: [M + 'cert-proficiency.webp'], icon: 'trophy' },
+    { title: 'Annual Peace Summit', issuer: 'The Aga Khan Academy · certificate of facilitation', year: 'Summit', imgs: [M + 'cert-peace-summit.webp'], icon: 'doc' },
     { title: 'Virtual Job Simulation', issuer: 'Fidelity International · Forage', year: 'Forage', icon: 'doc' },
-    { title: 'Second Honours', issuer: 'Academic award · three times', year: 'School', icon: 'medal' },
-    { title: 'Most Improved', issuer: 'Academic award', year: 'School', icon: 'medal' },
-    { title: 'GE Award', issuer: 'GE Summer Programme, Kyrgyzstan', year: '2025', icon: 'globe' },
+    { title: 'GE Award', issuer: 'GE Summer Programme, Kyrgyzstan', year: 'GE', icon: 'globe' },
     { title: 'Beat a chess grandmaster', issuer: 'Chess', year: 'Chess', icon: 'knight' },
     { title: 'Table tennis', issuer: 'Inter-school & Congo Olympics, Kinshasa', year: '2021 – 2024', icon: 'trophy' }
   ];
 
   /* Extra gallery photos that don't belong to one activity. */
   var GALLERY_EXTRA = [
+    { src: M + 'kaka-mkubwa.webp', w: 1020, h: 768, caption: 'Kaka Mkubwa, a peer tutoring programme: our Group 3', group: 'community' },
+    { src: M + 'st-augustine.webp', w: 960, h: 540, caption: 'A session with students at St. Augustine’s', group: 'community' },
+    { src: M + 'st-augustine-2.webp', w: 1020, h: 768, caption: 'Working with students at St. Augustine’s', group: 'community' },
+    { src: M + 'kids-session.webp', w: 1020, h: 768, caption: 'Running a session with children', group: 'community' },
     { src: I + 'portrait.webp', w: 1000, h: 1000, caption: 'Avi Dharani', group: 'life' }
   ];
 

@@ -502,7 +502,7 @@
               <div><h5>School composting</h5><p>We installed an Aerobin at school and began diverting organic food waste into it for composting.</p></div>
               <div class="intended"><h5>Intended next</h5><ul><li>Using the compost for an EarthPulse garden.</li><li>Donating compost to local farmers for their crops.</li></ul></div>
               <div><h5>Why it matters to me</h5><p>EarthPulse matters to me because it connects an environmental concern with actions people can take locally. My role includes managing resources, coordinating tasks and reporting progress so that our work can continue beyond a single awareness event.</p></div>
-              <div><h5>Completed so far</h5><ul><li>USD 2,500 IB Global Youth Action Fund grant awarded to the team.</li><li>A team of around 20 members.</li><li>About 30 children took part in the practical session.</li><li>An Aerobin composter installed at school.</li></ul></div>
+              <div><h5>Completed so far</h5><ul><li>USD 2,500 IB Global Youth Action Fund grant awarded to the team.</li><li>A team of around 20 members.</li><li>About 30 children took part in the practical session.</li><li>An Aerobin composter installed at school.</li><li>A DP CAS Award from The Aga Khan Academy for my EarthPulse contribution (2025–26).</li></ul></div>
             </div>
           </details>
         </article>
@@ -625,7 +625,7 @@
         <p class="idx rv"><b>08</b><i></i><span class="label">Awards &amp; recognition</span></p>
         <h2 class="h2 fx">Recognised for the <em>work</em>.</h2>
       </div>
-      <p class="lead rv">A grant our EarthPulse team won, and the certificates I've collected along the way.</p>
+      <p class="lead rv">A grant our EarthPulse team won, a CAS award for my part in it, and certificates collected along the way.</p>
     </div>
 
     <article class="award rv">
@@ -661,6 +661,7 @@
       <p class="label">Tap one to view it</p>
     </div>
     <div class="certs" id="certs"></div>
+    <div class="certs-more"><button type="button" class="btn btn-line" id="certsMore" hidden>Show all certificates <span class="arr">↓</span></button></div>
 
     <div class="life">
       <div class="edu rv">
@@ -683,10 +684,13 @@
         <p class="idx rv"><b>09</b><i></i><span class="label">Gallery</span></p>
         <h2 class="h2 fx">Moments from the <em>work</em>.</h2>
       </div>
-      <p class="lead rv">Projects, ventures, community work and everything in between. Tap any photo to open it.</p>
+      <p class="lead rv">A few favourites below. Open the full gallery to browse everything by activity.</p>
     </div>
-    <div class="gal-filter rv" role="group" aria-label="Filter photos" id="galFilter"></div>
-    <div class="gallery" id="galGrid"></div>
+    <div class="gal-preview rv" id="galPreview"></div>
+    <div class="gal-cta rv">
+      <button type="button" class="btn btn-ember" id="galOpen">View all photos <span class="mono" id="galCount"></span> <span class="arr">→</span></button>
+      <p class="gal-note" id="galCats"></p>
+    </div>
   </div>
 </section>
 
@@ -742,6 +746,17 @@
     <div class="am-nav"><button class="am-btn" id="amPrev" type="button" aria-label="Previous activity">←</button><button class="am-btn" id="amNext" type="button" aria-label="Next activity">→</button></div>
   </div>
   <div class="am-scroll" id="amScroll"></div>
+</div>
+
+<div class="gal-modal" id="galModal" role="dialog" aria-modal="true" aria-label="All photos" hidden>
+  <div class="gm-bar">
+    <div class="wrap gm-bar-in">
+      <div><span class="label">Gallery</span><b id="gmCount"></b></div>
+      <div class="gal-filter" role="group" aria-label="Filter photos" id="galFilter"></div>
+      <button class="am-btn" id="galClose" type="button" aria-label="Close gallery">✕</button>
+    </div>
+  </div>
+  <div class="gm-scroll"><div class="wrap"><div class="gallery" id="galGrid"></div></div></div>
 </div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
