@@ -162,6 +162,28 @@
   $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
   addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
+  /* ---------------- ticker: two rows, opposite directions, speed up with scroll ---------------- */
+  var trows = $$('.trow');
+  if (trows.length && !reduce) {
+    var tstate = trows.map(function (r, i) { return { el: $('.ttrack', r), x: 0, dir: i % 2 ? 1 : -1, w: 0 }; });
+    var lastY = scrollY, boost = 0, tvis = false;
+    new IntersectionObserver(function (e) { tvis = e[0].isIntersecting; }).observe($('.ticker'));
+    var measureT = function () { tstate.forEach(function (t) { t.w = t.el.scrollWidth / 2; if (t.dir > 0) t.x = -t.w; }); };
+    measureT(); addEventListener('resize', measureT); document.addEventListener('site:ready', measureT);
+    (function loop() {
+      requestAnimationFrame(loop);
+      var dy = scrollY - lastY; lastY = scrollY;
+      boost += (Math.min(Math.abs(dy), 60) * 0.12 - boost) * 0.08;
+      if (!tvis) return;
+      tstate.forEach(function (t) {
+        t.x += t.dir * (0.6 + boost);
+        if (t.x <= -t.w) t.x += t.w;
+        if (t.x > 0) t.x -= t.w;
+        t.el.style.transform = 'translate3d(' + t.x.toFixed(1) + 'px,0,0)';
+      });
+    })();
+  }
+
   /* ---------------- role rotator ---------------- */
   var rot = $('#rot');
   if (rot && !reduce) {

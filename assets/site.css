@@ -273,10 +273,13 @@ section.hero { padding: 0; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ---------- Marquee ---------- */
-.marquee { background: var(--ember); color: var(--ink); overflow: hidden; padding: 18px 0; transform: rotate(-1.2deg); margin: -10px -20px; position: relative; z-index: 3; }
-.marquee .track { display: flex; width: max-content; animation: marq 38s linear infinite; }
-.marquee span { font-family: var(--display); font-weight: 600; font-size: clamp(1.3rem, 2.4vw, 1.9rem); letter-spacing: -0.02em; padding: 0 22px; white-space: nowrap; display: flex; align-items: center; gap: 44px; }
-.marquee span::after { content: '✺'; font-size: 0.8em; }
+.ticker { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(18px, 2.4vw, 28px) 0; overflow: hidden; display: grid; gap: 6px; }
+.trow { overflow: hidden; }
+.ttrack { display: flex; width: max-content; will-change: transform; }
+.ttrack span { display: flex; align-items: center; gap: clamp(22px, 3vw, 44px); padding-right: clamp(22px, 3vw, 44px); font-family: var(--display); font-weight: 700; font-size: clamp(2.2rem, 6vw, 5rem); letter-spacing: -0.045em; line-height: 1.05; white-space: nowrap; color: var(--text); }
+.ttrack span.o { color: transparent; -webkit-text-stroke: 1.4px var(--text); }
+.ttrack span::after { content: ''; width: 0.32em; height: 0.32em; border-radius: 50%; background: var(--ember); flex: none; }
+.trow.rev .ttrack span::after { border-radius: 0; transform: rotate(45deg); width: 0.26em; height: 0.26em; }
 @keyframes marq { to { transform: translateX(-50%); } }
 
 /* ---------- Journey ---------- */
@@ -817,3 +820,10 @@ section.hero { padding: 0; }
 html.am-open, html.am-open body, html.lb-open body { overflow: hidden; }
 .am-bar { transition: background-color 0.3s, box-shadow 0.3s; }
 .am-bar.solid { background: rgba(243, 240, 232, 0.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--line); }
+
+/* body copy is justified site-wide (headings, labels and buttons are not) */
+p, li, blockquote, figcaption, dd { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+.reel-meta .lead { text-align: justify; }
+.hero-kicker, .hero-role, .label, .mono, .st, .btn, .link, .reel-count, .foot-cols p, .foot-cols a, .cid-rows b, .award-facts dd, .am-side dd, .glance span { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
+.pin, .pin.left { text-align: left; }
+.pin.left { text-align: right; }
