@@ -117,10 +117,12 @@ window.SITE_DATA = (function () {
       body: [
         'Through YEC, I help students explore financial literacy, investing and entrepreneurship in weekly two-hour sessions. We use learning materials, investment simulations and discussions to connect financial concepts with practical decisions.',
         'I want other students to have opportunities to explore money and enterprise early, ask questions and practise before facing real financial decisions. Part of my earnings from A&F helps fund the learning resources we use.'
+        ,'I also manage a small portfolio of my own, holding gold-backed PAX Gold, Bitcoin and USDT as a cash reserve. Some positions are currently down, which is part of the lesson: sticking to a plan and seeing why diversification matters in practice, not just in our sessions.'
       ],
       did: ['Planning and running the weekly sessions', 'Choosing resources: Coursera and edX (paid), Investopedia and simulators (free)', 'Pointing students to Forage virtual job simulations, which are practice tasks with a completion certificate'],
       links: [],
       media: [
+        { src: M + 'investing-portfolio.webp', w: 800, h: 1624, caption: 'My own investment portfolio, with balances and amounts blurred for privacy', shot: true },
         { src: M + 'yec-intro.webp', w: 1600, h: 1200, caption: 'An early YEC session: an introduction to investing and trading' },
         { src: M + 'yec-session.webp', w: 1600, h: 1200, caption: 'A YEC session in progress' },
         { src: M + 'yec-session-2.webp', w: 1600, h: 1200, caption: 'Students presenting in a YEC session' },
@@ -133,21 +135,6 @@ window.SITE_DATA = (function () {
         { src: M + 'p-091.webp', w: 1600, h: 1200, caption: 'A YEC session, September 2025' },
         { src: M + 'p-095.webp', w: 1600, h: 1200, caption: 'A YEC session, September 2025' },
         { src: M + 'yec-video.webp', video: M + 'yec-video.mp4', w: 436, h: 327, caption: 'A YEC session, September 2025' }
-      ]
-    },
-    {
-      id: 'investing', title: 'Personal Investing', kind: 'Personal · Finance', group: 'ventures',
-      role: 'Managing my own portfolio', when: 'Ongoing', where: 'Self-directed',
-      status: ['live', 'Ongoing'], cover: M + 'investing-portfolio.webp', glyph: 'chart', tone: 'ink',
-      lead: 'Managing a small portfolio of my own, to learn how markets behave with real money at stake.',
-      body: [
-        'Alongside YEC, I manage a small investment portfolio of my own. It currently holds PAX Gold (a token backed by physical gold), Bitcoin and a stablecoin (USDT) kept as cash, split across a store of value, a higher-risk growth asset and a cash reserve.',
-        'Some positions are currently showing losses, which has been part of the lesson: watching how prices move, sticking to a plan instead of reacting to every swing, and understanding why diversification and position sizing matter. It is the practical side of the investing ideas we discuss in YEC sessions.'
-      ],
-      did: ['Choosing assets and deciding how to split the portfolio', 'Tracking performance and unrealised gains and losses', 'Keeping a cash reserve instead of being fully invested'],
-      links: [],
-      media: [
-        { src: M + 'investing-portfolio.webp', w: 800, h: 1624, caption: 'My portfolio overview, with balances and amounts blurred for privacy', shot: true }
       ]
     },
     {
