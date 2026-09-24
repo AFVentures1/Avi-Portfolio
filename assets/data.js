@@ -136,6 +136,36 @@ window.SITE_DATA = (function () {
       ]
     },
     {
+      id: 'tutorcraft', title: 'TutorCraft', kind: 'Service · Tutoring', group: 'community',
+      role: 'Volunteer tutor', when: 'Ongoing', where: 'Online',
+      status: ['live', 'Ongoing'], cover: M + 'tc-site-home.webp', glyph: 'doc', tone: 'paper',
+      lead: 'Volunteering as a tutor with TutorCraft, a tutoring company with an AI-powered study platform.',
+      body: [
+        'I work with TutorCraft, a Canadian tutoring company that pairs one-to-one tutoring with TutorCraft Online, an AI-powered study platform. The platform offers curriculum-aligned lessons, worksheets and practice quizzes for Ontario, Quebec and IB MYP students in Grades 5 to 10, plus free enrichment courses in chess, coding, money and critical thinking.',
+        'Alongside that, I volunteer as a tutor, giving my time to help students with topics they find difficult. It connects to what I enjoy most about YEC and the chess academy: helping someone understand an idea well enough to use it on their own.'
+      ],
+      did: ['Volunteer tutoring: helping students work through topics they find difficult', 'Working with the TutorCraft team'],
+      links: [['Visit tutorcraft.online', 'https://tutorcraft.online'], ['Visit tutorcraft.ca', 'https://www.tutorcraft.ca/'], ['TutorCraft on Instagram', 'https://www.instagram.com/tutorcraftonline/']],
+      media: [
+        { src: M + 'tc-site-home.webp', w: 1400, h: 875, caption: 'TutorCraft Online: the AI-powered study platform', shot: true },
+        { src: M + 'tc-site-features.webp', w: 1184, h: 866, caption: 'Step-by-step lessons, an E-Tutor and homework help', shot: true },
+        { src: M + 'tc-site-courses.webp', w: 1184, h: 578, caption: 'Free enrichment courses: chess, coding, money and critical thinking', shot: true },
+        { src: M + 'tc-site-schools.webp', w: 1400, h: 875, caption: 'TutorCraft for schools', shot: true },
+        { src: M + 'tc-site-ca.webp', w: 1400, h: 875, caption: 'tutorcraft.ca: one-to-one tutoring', shot: true },
+        { src: M + 'tc-ad-personalized.webp', w: 496, h: 640, caption: 'TutorCraft marketing: personalised tutoring', shot: true },
+        { src: M + 'tc-ad-learning.webp', w: 640, h: 640, caption: 'TutorCraft marketing: the study platform', shot: true },
+        { src: M + 'tc-ad-tutors.webp', w: 640, h: 495, caption: 'TutorCraft marketing: tutor with TutorCraft', shot: true },
+        { src: M + 'tc-ad-platform.webp', w: 640, h: 452, caption: 'TutorCraft marketing: tutoring plus an AI-powered platform', shot: true },
+        { src: M + 'tc-ad-report-card.webp', w: 480, h: 640, caption: 'TutorCraft marketing: back to school', shot: true },
+        { src: M + 'tc-ad-ontario.webp', w: 480, h: 640, caption: 'TutorCraft marketing: changes in Ontario education', shot: true },
+        { src: M + 'tc-ad-summer-camp.webp', w: 480, h: 640, caption: 'TutorCraft marketing: summer school-readiness camp', shot: true },
+        { src: M + 'tc-ad-special-needs.webp', w: 640, h: 640, caption: 'TutorCraft marketing: support for students with special needs', shot: true },
+        { src: M + 'tc-ad-results.webp', w: 360, h: 640, caption: 'TutorCraft marketing: one-to-one tutoring that delivers results', shot: true },
+        { src: M + 'tc-ad-tutors-2.webp', w: 640, h: 495, caption: 'TutorCraft marketing: expert tutors', shot: true },
+        { src: M + 'tc-ad-social.webp', w: 640, h: 640, caption: 'TutorCraft on social media', shot: true }
+      ]
+    },
+    {
       id: 'akam', title: 'Aga Khan Agency for Microfinance', kind: 'Internship', group: 'internships',
       role: 'Remote Intern', when: '2026 · five weeks', where: 'Remote',
       status: ['done', 'Completed'], glyph: 'bank', tone: 'ink',
