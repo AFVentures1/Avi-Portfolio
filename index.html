@@ -726,6 +726,35 @@
       </aside>
     </div>
 
+
+    <form class="cform rv" id="cform" novalidate>
+      <div class="cf-intro">
+        <span class="label" style="color:var(--on-ink-2)">Send a message</span>
+        <h3>Write to me here.</h3>
+        <p>Your message goes straight to my inbox. I usually reply within a day.</p>
+      </div>
+      <div class="cf-fields">
+        <div class="cf-row">
+          <label><span>Your name</span><input name="name" type="text" autocomplete="name" required maxlength="100" /></label>
+          <label><span>Your email</span><input name="email" type="email" autocomplete="email" required maxlength="200" /></label>
+        </div>
+        <label><span>What's it about?</span>
+          <select name="topic">
+            <option>University or scholarship</option>
+            <option>A project or client work</option>
+            <option>Internship or job</option>
+            <option>Collaboration</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label><span>Message</span><textarea name="message" rows="5" required maxlength="4000"></textarea></label>
+        <input type="text" name="_honey" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="cf-foot">
+          <button type="submit" class="btn btn-ember" id="cfSend">Send message <span class="arr">→</span></button>
+          <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </form>
     <div class="foot-cols">
       <div><span class="label">Explore</span><a href="#about">About</a><a href="#ventures">Activities</a><a href="#work">Live work</a><a href="#impact">Impact</a><a href="#experience">Experience</a><a href="#documents">Documents</a><a href="#gallery">Gallery</a></div>
       <div><span class="label">Projects</span><a href="https://digital-growth-partner-azure.vercel.app/" target="_blank" rel="noopener">A&amp;F Ventures <i>↗</i></a><a href="https://fuelsave-website.vercel.app/" target="_blank" rel="noopener">Fuel2Save <i>↗</i></a><a href="https://earthpulse.africa" target="_blank" rel="noopener">EarthPulse <i>↗</i></a><a href="https://binman.app" target="_blank" rel="noopener">BINMAN <i>↗</i></a></div>

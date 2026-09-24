@@ -696,6 +696,55 @@
     }
   });
 
+  /* ---------------- contact form (FormSubmit forwards it to my inbox) ---------------- */
+  var cform = $('#cform');
+  if (cform) {
+    var FORM_ENDPOINT = 'https://formsubmit.co/ajax/avidharani110@gmail.com';
+    var status = $('#cfStatus'), send = $('#cfSend');
+    cform.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = cform.elements, bad = false;
+      ['name', 'email', 'message'].forEach(function (k) {
+        var el = f[k], v = el.value.trim();
+        var ok = v && (k !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+        el.classList.toggle('invalid', !ok);
+        if (!ok) bad = true;
+      });
+      status.className = 'cf-status';
+      if (bad) { status.textContent = 'Please add your name, a valid email and a message.'; status.classList.add('err'); return; }
+      if (f._honey.value) return;
+      send.disabled = true;
+      status.textContent = 'Sending…';
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: f.name.value.trim(),
+          email: f.email.value.trim(),
+          topic: f.topic.value,
+          message: f.message.value.trim(),
+          _subject: 'Portfolio message: ' + f.topic.value + ' (from ' + f.name.value.trim() + ')',
+          _replyto: f.email.value.trim(),
+          _template: 'table',
+          _captcha: 'false'
+        })
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (res.ok && String(res.j.success) !== 'false') {
+            cform.reset();
+            status.textContent = 'Thanks, your message has been sent. I’ll get back to you soon.';
+            status.classList.add('ok');
+          } else { throw new Error(res.j.message || 'failed'); }
+        })
+        .catch(function () {
+          status.innerHTML = 'Something went wrong. Please email me directly at <a href="mailto:avidharani110@gmail.com" style="text-decoration:underline">avidharani110@gmail.com</a>.';
+          status.classList.add('err');
+        })
+        .then(function () { send.disabled = false; });
+    });
+    ['name', 'email', 'message'].forEach(function (k) { cform.elements[k].addEventListener('input', function () { this.classList.remove('invalid'); }); });
+  }
+
   /* ---------------- footer: clock + copy email ---------------- */
   var clock = $('#clock');
   if (clock) {

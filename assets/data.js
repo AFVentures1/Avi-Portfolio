@@ -80,7 +80,15 @@ window.SITE_DATA = (function () {
         { src: M + 'ep-sorting.webp', w: 1600, h: 900, caption: 'A waste-sorting activity with students' },
         { src: M + 'ep-sorting-2.webp', w: 1600, h: 900, caption: 'Sorting recyclables into labelled boxes' },
         { src: M + 'ep-aerobin.webp', video: M + 'ep-aerobin.mp4', w: 568, h: 320, caption: 'Installing the Aerobin composter at school' },
-        { src: M + 'ep-cas-board.webp', w: 960, h: 1280, caption: 'EarthPulse on the school CAS board' }
+        { src: M + 'ep-cas-board.webp', w: 960, h: 1280, caption: 'EarthPulse on the school CAS board' },
+        { src: M + 'p-056.webp', w: 1600, h: 900, caption: 'A Twister game during an awareness activity' },
+        { src: M + 'p-057.webp', w: 1200, h: 1600, caption: 'Students playing Twister' },
+        { src: M + 'p-058.webp', w: 1200, h: 1600, caption: 'Students playing Twister' },
+        { src: M + 'p-059.webp', w: 1200, h: 1600, caption: 'Students playing Twister' },
+        { src: M + 'p-064.webp', w: 1600, h: 900, caption: 'Sorting recyclables with students' },
+        { src: M + 'ep-twister-1.webp', video: M + 'ep-twister-1.mp4', w: 568, h: 320, caption: 'Twister during an awareness activity' },
+        { src: M + 'ep-twister-2.webp', video: M + 'ep-twister-2.mp4', w: 568, h: 320, caption: 'Twister during an awareness activity' },
+        { src: M + 'p-035.webp', w: 1600, h: 900, caption: 'The EarthPulse team on the IB Global Youth Action Fund 2026 winners page (screenshot)', shot: true }
       ]
     },
     {
@@ -116,7 +124,15 @@ window.SITE_DATA = (function () {
         { src: M + 'yec-intro.webp', w: 1600, h: 1200, caption: 'An early YEC session: an introduction to investing and trading' },
         { src: M + 'yec-session.webp', w: 1600, h: 1200, caption: 'A YEC session in progress' },
         { src: M + 'yec-session-2.webp', w: 1600, h: 1200, caption: 'Students presenting in a YEC session' },
-        { src: M + 'yec-session-3.webp', w: 1600, h: 1200, caption: 'Discussion during a YEC session' }
+        { src: M + 'yec-session-3.webp', w: 1600, h: 1200, caption: 'Discussion during a YEC session' },
+        { src: M + 'p-077.webp', w: 1600, h: 1200, caption: 'A YEC session, September 2025' },
+        { src: M + 'p-079.webp', w: 1600, h: 1200, caption: 'A YEC session, September 2025' },
+        { src: M + 'p-081.webp', w: 1600, h: 1200, caption: 'A YEC session, September 2025' },
+        { src: M + 'p-085.webp', w: 1600, h: 1200, caption: 'A YEC session, September 2025' },
+        { src: M + 'p-087.webp', w: 1600, h: 1200, caption: 'A YEC session, September 2025' },
+        { src: M + 'p-091.webp', w: 1600, h: 1200, caption: 'A YEC session, September 2025' },
+        { src: M + 'p-095.webp', w: 1600, h: 1200, caption: 'A YEC session, September 2025' },
+        { src: M + 'yec-video.webp', video: M + 'yec-video.mp4', w: 436, h: 327, caption: 'A YEC session, September 2025' }
       ]
     },
     {
@@ -135,7 +151,8 @@ window.SITE_DATA = (function () {
         { src: M + 'akam-session.webp', w: 1400, h: 788, caption: 'A video session with the First MicroFinanceBank Afghanistan team' },
         { src: D + 'akam-internship-proposal-cover.webp', w: 640, h: 905, caption: 'My proposal: Reading beyond the credit file', shot: true },
         { src: M + 'akam-banking-session.webp', w: 1600, h: 850, caption: 'A session on the bank’s operations and loan products' },
-        { src: M + 'akam-hr-session.webp', w: 1600, h: 750, caption: 'A session with the FMFB-A HR team on conventional and Islamic banking' }
+        { src: M + 'akam-hr-session.webp', w: 1600, h: 750, caption: 'A session with the FMFB-A HR team on conventional and Islamic banking' },
+        { src: M + 'p-123.webp', w: 1280, h: 590, caption: 'A session on the bank’s UNDP-backed training for small-business customers', shot: true }
       ]
     },
     {
@@ -176,7 +193,30 @@ window.SITE_DATA = (function () {
         { src: M + 'chess-match.webp', w: 1280, h: 960, caption: 'A game between two of our players' },
         { src: M + 'chess-eajcc.webp', w: 1280, h: 960, caption: 'Competing at the East African Junior Chess Championship, Mombasa, January 2025' },
         { src: M + 'chess-simul.webp', w: 1200, h: 1600, caption: 'A chess simul with Algerian National Master Yala Lyes, May 2024' },
-        { src: M + 'chess-akam-swiss.webp', w: 960, h: 1280, caption: 'The Aga Khan Academy chess Swiss tournament, September 2024' }
+        { src: M + 'chess-akam-swiss.webp', w: 960, h: 1280, caption: 'The Aga Khan Academy chess Swiss tournament, September 2024' },
+        { src: M + 'p-008.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-009.webp', w: 960, h: 1280, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-016.webp', w: 960, h: 1280, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-020.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-022.webp', w: 960, h: 1280, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-026.webp', w: 960, h: 1280, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-027.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-028.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-031.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-034.webp', w: 960, h: 1280, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-037.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-038.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-108.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-109.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-112.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-114.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-116.webp', w: 960, h: 1280, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-120.webp', w: 960, h: 1280, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-124.webp', w: 1280, h: 960, caption: 'Summer coaching in Kinshasa, 2024' },
+        { src: M + 'p-018.webp', w: 720, h: 1280, caption: 'Chess Swiss tournament at school, September 2024' },
+        { src: M + 'p-039.webp', w: 1200, h: 1600, caption: 'East African Junior Chess Championship, January 2025' },
+        { src: M + 'p-054.webp', w: 1200, h: 1600, caption: 'Chess simul with a National Master, May 2024' },
+        { src: M + 'p-066.webp', w: 1200, h: 1600, caption: 'A chess session at school' }
       ]
     },
     {
@@ -226,7 +266,12 @@ window.SITE_DATA = (function () {
         { src: M + 'zb-boba-poster.webp', w: 1024, h: 1536, caption: 'Poster for The Boba Stop, one of our four stalls' },
         { src: M + 'zb-menu.webp', w: 815, h: 1230, caption: 'The Sweet Escape menu' },
         { src: M + 'zb-clothing-stall.webp', w: 1600, h: 1200, caption: 'The clothing stall' },
-        { src: M + 'zb-stall.webp', w: 960, h: 1280, caption: 'Setting up a stall' }
+        { src: M + 'zb-stall.webp', w: 960, h: 1280, caption: 'Setting up a stall' },
+        { src: M + 'p-023.webp', w: 960, h: 1280, caption: 'Our stall at Zawadi Bazaar' },
+        { src: M + 'p-036.webp', w: 960, h: 1280, caption: 'Making bubble waffles' },
+        { src: M + 'p-046.webp', w: 1600, h: 1200, caption: 'The clothing stall' },
+        { src: M + 'zb-video-1.webp', video: M + 'zb-video-1.mp4', w: 272, h: 480, caption: 'Our stall at Zawadi Bazaar' },
+        { src: M + 'zb-video-2.webp', video: M + 'zb-video-2.mp4', w: 268, h: 480, caption: 'Setting up for the bazaar' }
       ]
     },
     {
@@ -242,7 +287,8 @@ window.SITE_DATA = (function () {
       links: [],
       media: [
         { src: M + 'ge-group.webp', w: 1600, h: 900, caption: 'With the programme cohort' },
-        { src: M + 'ge-presentation.webp', w: 1200, h: 1600, caption: 'Presenting a group task: analysing a business' }
+        { src: M + 'ge-presentation.webp', w: 1200, h: 1600, caption: 'Presenting a group task: analysing a business' },
+        { src: M + 'ge-video.webp', video: M + 'ge-video.mp4', w: 360, h: 480, caption: 'Presenting a group task' }
       ]
     }
   ];
@@ -273,6 +319,25 @@ window.SITE_DATA = (function () {
     { src: M + 'st-augustine.webp', w: 960, h: 540, caption: 'A session with students at St. Augustine’s', group: 'community' },
     { src: M + 'st-augustine-2.webp', w: 1020, h: 768, caption: 'Working with students at St. Augustine’s', group: 'community' },
     { src: M + 'kids-session.webp', w: 1020, h: 768, caption: 'Running a session with children', group: 'community' },
+    { src: M + 'p-029.webp', w: 1204, h: 1600, caption: 'Running a session with children', group: 'community' },
+    { src: M + 'p-030.webp', w: 1020, h: 768, caption: 'Running a session with children', group: 'community' },
+    { src: M + 'p-122.webp', w: 1020, h: 768, caption: 'Running a session with children', group: 'community' },
+    { src: M + 'p-125.webp', w: 768, h: 1020, caption: 'Running a session with children', group: 'community' },
+    { src: M + 'p-107.webp', w: 768, h: 1020, caption: 'Running a session with children', group: 'community' },
+    { src: M + 'p-042.webp', w: 1600, h: 1200, caption: 'Presenting a project at school', group: 'community' },
+    { src: M + 'p-043.webp', w: 1600, h: 1200, caption: 'Presenting a project at school', group: 'community' },
+    { src: M + 'p-044.webp', w: 1600, h: 1200, caption: 'Presenting a project at school', group: 'community' },
+    { src: M + 'p-049.webp', w: 1200, h: 1600, caption: 'Community service, March 2024', group: 'community' },
+    { src: M + 'p-050.webp', w: 1200, h: 1600, caption: 'Community service, March 2024', group: 'community' },
+    { src: M + 'p-051.webp', w: 1200, h: 1600, caption: 'Community service, March 2024', group: 'community' },
+    { src: M + 'p-052.webp', w: 1200, h: 1600, caption: 'Community service, March 2024', group: 'community' },
+    { src: M + 'p-047.webp', w: 1200, h: 1600, caption: 'Planting a seedling', group: 'community' },
+    { src: M + 'p-033.webp', w: 810, h: 1080, caption: 'Running a waffle stall', group: 'ventures' },
+    { src: M + 'p-100.webp', w: 1600, h: 1200, caption: 'With friends', group: 'life' },
+    { src: M + 'p-101.webp', w: 1600, h: 1200, caption: 'With friends', group: 'life' },
+    { src: M + 'p-072.webp', w: 1200, h: 1600, caption: 'A participation certificate and medal', group: 'life' },
+    { src: M + 'p-073.webp', w: 1600, h: 1200, caption: 'Recognition certificate for full attendance in religious education, 2023–24', group: 'life' },
+    { src: M + 'life-gym.webp', video: M + 'life-gym.mp4', w: 568, h: 320, caption: 'Training at the gym', group: 'life' },
     { src: I + 'portrait.webp', w: 1000, h: 1000, caption: 'Avi Dharani', group: 'life' }
   ];
 

@@ -864,3 +864,25 @@ html.gm-open, html.gm-open body { overflow: hidden; }
   .gm-bar-in > div:first-child { flex: 1; }
 }
 .cert p, .cert h4, .act-role, .gal-cta p, .cid-rows, .foot-cols p { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
+
+/* ---------- Contact form ---------- */
+.cform { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(24px, 4vw, 60px); margin-top: clamp(60px, 8vw, 100px); padding: clamp(22px, 3vw, 36px); border-radius: 26px; background: var(--ink-2); border: 1px solid var(--line-dark); }
+.cf-intro h3 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); letter-spacing: -0.04em; margin: 12px 0 10px; }
+.cf-intro p { color: var(--on-ink-2); max-width: 22rem; }
+.cf-fields { display: grid; gap: 14px; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cform label { display: grid; gap: 6px; }
+.cform label > span { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--on-ink-2); }
+.cform input, .cform textarea, .cform select { width: 100%; font: inherit; font-size: 15px; color: var(--on-ink); background: rgba(243, 240, 232, 0.05); border: 1px solid var(--line-dark); border-radius: 12px; padding: 12px 14px; transition: border-color 0.25s, background-color 0.25s; }
+.cform select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23f3f0e8' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+.cform select option { color: #111; }
+.cform textarea { resize: vertical; min-height: 120px; }
+.cform input:focus, .cform textarea:focus, .cform select:focus { outline: none; border-color: var(--ember); background: rgba(243, 240, 232, 0.08); }
+.cform .invalid { border-color: #e5484d; }
+.cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.cf-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.cf-status { margin: 0; font-size: 14px; color: var(--on-ink-2); text-align: left; }
+.cf-status.ok { color: #7fc9a3; }
+.cf-status.err { color: #ff8a80; }
+.cform button[disabled] { opacity: 0.6; cursor: progress; }
+@media (max-width: 760px) { .cform { grid-template-columns: 1fr; } .cf-row { grid-template-columns: 1fr; } }
