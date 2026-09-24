@@ -250,18 +250,20 @@ window.SITE_DATA = (function () {
       ]
     },
     {
-      id: 'into-the-woods', title: 'Into the Woods', kind: 'School production', group: 'community',
+      id: 'into-the-woods', title: 'Into the Woods', kind: 'DP1 Play', group: 'community',
       role: 'Finance team', when: '2026', where: 'School, Mombasa',
       status: ['done', 'Completed'], cover: M + 'itw-shirt.webp', glyph: 'mask', tone: 'moss',
       lead: 'Sponsorship, budgeting and licensing behind our school musical.',
       body: [
         'I helped make our school’s production of Into the Woods possible through sponsorship outreach, budgeting, allocation and licensing work. I personally secured 50% of the funds raised.',
-        'This showed me how financial and organisational work can support other people’s creativity.'
+        'The DP1 Play is an annual student-run production at The Aga Khan Academy, Mombasa, performed on 20 and 21 April 2026. Beyond production costs, funds raised were intended to support students at Mwega Primary School in Gilgil, where our class began its CAS journey. This showed me how financial and organisational work can support other people’s creativity.'
       ],
-      did: ['Sponsorship outreach and sponsor commitments', 'Budgeting and allocation', 'Licensing work'],
+      did: ['Sponsorship outreach, using a five-tier sponsorship package (Bronze to Diamond)', 'Sponsor letters and sponsor commitments', 'Budgeting and allocation', 'Licensing work'],
       done: ['Personally secured 50% of the funds raised'],
-      links: [],
+      links: [['Sponsorship tiers (PDF)', D + 'dp1-play-sponsorship-tiers.pdf'], ['Sponsor letter (PDF)', D + 'dp1-play-sponsor-letter.pdf']],
       media: [
+        { src: D + 'dp1-play-sponsorship-tiers-cover.webp', w: 640, h: 828, caption: 'The DP1 Play sponsorship package: five tiers from Bronze to Diamond', shot: true },
+        { src: D + 'dp1-play-sponsor-letter-cover.webp', w: 640, h: 828, caption: 'The sponsor letter sent to potential sponsors', shot: true },
         { src: M + 'itw-shirt.webp', w: 1200, h: 1600, caption: 'Our Finance Team shirt, with the production’s sponsors' }
       ]
     },
