@@ -117,12 +117,12 @@ window.SITE_DATA = (function () {
       body: [
         'Through YEC, I help students explore financial literacy, investing and entrepreneurship in weekly two-hour sessions. We use learning materials, investment simulations and discussions to connect financial concepts with practical decisions.',
         'I want other students to have opportunities to explore money and enterprise early, ask questions and practise before facing real financial decisions. Part of my earnings from A&F helps fund the learning resources we use.'
-        ,'I also manage a small portfolio of my own, holding gold-backed PAX Gold, Bitcoin and USDT as a cash reserve. Some positions are currently down, which is part of the lesson: sticking to a plan and seeing why diversification matters in practice, not just in our sessions.'
+        ,'I also manage a small portfolio of my own, holding gold-backed PAX Gold, Bitcoin and USDT as a cash reserve. Managing real money has taught me to stick to a plan and why diversification matters in practice, not just in our sessions.'
       ],
       did: ['Planning and running the weekly sessions', 'Choosing resources: Coursera and edX (paid), Investopedia and simulators (free)', 'Pointing students to Forage virtual job simulations, which are practice tasks with a completion certificate'],
       links: [],
       media: [
-        { src: M + 'investing-portfolio.webp', w: 800, h: 1624, caption: 'My own investment portfolio, with balances and amounts blurred for privacy', shot: true },
+        { src: M + 'investing-portfolio.webp', w: 800, h: 1624, caption: 'My own investment portfolio: total value shown, individual holdings blurred for privacy', shot: true },
         { src: M + 'yec-intro.webp', w: 1600, h: 1200, caption: 'An early YEC session: an introduction to investing and trading' },
         { src: M + 'yec-session.webp', w: 1600, h: 1200, caption: 'A YEC session in progress' },
         { src: M + 'yec-session-2.webp', w: 1600, h: 1200, caption: 'Students presenting in a YEC session' },
