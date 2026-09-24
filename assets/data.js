@@ -268,16 +268,23 @@ window.SITE_DATA = (function () {
     {
       id: 'waffle-chips', title: 'Waffle Chips', kind: 'Product', group: 'ventures',
       role: 'Co-founder', when: '2025', where: 'Mombasa, Kenya',
-      status: ['done', 'First launch done'], glyph: 'bag', tone: 'ember',
+      status: ['done', 'First launch done'], cover: M + 'wc-strawberry.webp', glyph: 'bag', tone: 'ember',
       lead: 'A snack product built with a supplier we met through Zawadi Bazaar.',
       body: [
         'Waffle Chips grew from a supplier relationship developed through Zawadi Bazaar. We combined the supplier’s manufacturing capabilities with our product ideas, branding and marketing to bring a snack product to market.',
         'The project helped me see how combining different people’s skills can turn an idea into a product.'
       ],
-      did: ['Product ideas, branding and marketing', 'Working with the supplier on production'],
+      did: ['Product ideas, branding and marketing, including the Sweet Escape packaging for four flavours', 'Working with the supplier on production'],
       done: ['Initial launch sold about 100 units'],
       links: [],
-      media: []
+      media: [
+        { src: M + 'wc-strawberry.webp', w: 853, h: 1280, caption: 'Sweet Escape Waffle Chips packaging: Strawberry Dream' },
+        { src: M + 'wc-milk-choco.webp', w: 853, h: 1280, caption: 'Sweet Escape Waffle Chips packaging: Milk Choco Drizzle' },
+        { src: M + 'wc-kinder.webp', w: 853, h: 1280, caption: 'Sweet Escape Waffle Chips packaging: Kinder' },
+        { src: M + 'wc-oreo.webp', w: 853, h: 1280, caption: 'Sweet Escape Waffle Chips packaging: Oreo' },
+        { src: M + 'zb-waffles.webp', w: 960, h: 1280, caption: 'Making waffles at our Zawadi Bazaar stall, where the supplier relationship started' },
+        { src: M + 'p-033.webp', w: 810, h: 1080, caption: 'Our waffle stall at Zawadi Bazaar' }
+      ]
     },
     {
       id: 'zawadi', title: 'Zawadi Bazaar', kind: 'School enterprise', group: 'ventures',
@@ -362,7 +369,6 @@ window.SITE_DATA = (function () {
     { src: M + 'p-051.webp', w: 1200, h: 1600, caption: 'Community service, March 2024', group: 'community' },
     { src: M + 'p-052.webp', w: 1200, h: 1600, caption: 'Community service, March 2024', group: 'community' },
     { src: M + 'p-047.webp', w: 1200, h: 1600, caption: 'Planting a seedling', group: 'community' },
-    { src: M + 'p-033.webp', w: 810, h: 1080, caption: 'Running a waffle stall', group: 'ventures' },
     { src: M + 'p-100.webp', w: 1600, h: 1200, caption: 'With friends', group: 'life' },
     { src: M + 'p-101.webp', w: 1600, h: 1200, caption: 'With friends', group: 'life' },
     { src: M + 'p-072.webp', w: 1200, h: 1600, caption: 'A participation certificate and medal', group: 'life' },
