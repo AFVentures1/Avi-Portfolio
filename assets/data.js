@@ -137,17 +137,17 @@ window.SITE_DATA = (function () {
     },
     {
       id: 'tutorcraft', title: 'TutorCraft', kind: 'Service · Tutoring', group: 'community',
-      role: 'Volunteer tutor', when: 'Ongoing', where: 'Online',
+      role: 'Website, AI marketing and volunteer tutoring', when: 'Ongoing', where: 'Online',
       status: ['live', 'Ongoing'], cover: M + 'tc-site-home.webp', glyph: 'doc', tone: 'paper',
-      lead: 'Volunteering as a tutor with TutorCraft, a tutoring company with an AI-powered study platform.',
+      lead: 'Helping build TutorCraft’s study platform, creating its AI marketing content and tutoring students.',
       body: [
         'I work with TutorCraft, a Canadian tutoring company that pairs one-to-one tutoring with TutorCraft Online, an AI-powered study platform. The platform offers curriculum-aligned lessons, worksheets and practice quizzes for Ontario, Quebec and IB MYP students in Grades 5 to 10, plus free enrichment courses in chess, coding, money and critical thinking.',
-        'Alongside that, I volunteer as a tutor, giving my time to help students with topics they find difficult. It connects to what I enjoy most about YEC and the chess academy: helping someone understand an idea well enough to use it on their own.'
+        'I helped build the TutorCraft Online website and created AI-generated marketing content for the company’s social media. I also help tutor students, giving my time to help them with topics they find difficult. It connects to what I enjoy most about YEC and the chess academy: helping someone understand an idea well enough to use it on their own.'
       ],
-      did: ['Volunteer tutoring: helping students work through topics they find difficult', 'Working with the TutorCraft team'],
+      did: ['Helping build the TutorCraft Online website', 'Creating AI marketing content for TutorCraft’s social media', 'Tutoring students as a volunteer'],
       links: [['Visit tutorcraft.online', 'https://tutorcraft.online'], ['Visit tutorcraft.ca', 'https://www.tutorcraft.ca/'], ['TutorCraft on Instagram', 'https://www.instagram.com/tutorcraftonline/']],
       media: [
-        { src: M + 'tc-site-home.webp', w: 1400, h: 875, caption: 'TutorCraft Online: the AI-powered study platform', shot: true },
+        { src: M + 'tc-site-home.webp', w: 1400, h: 875, caption: 'TutorCraft Online, the study platform I helped build', shot: true },
         { src: M + 'tc-site-features.webp', w: 1184, h: 866, caption: 'Step-by-step lessons, an E-Tutor and homework help', shot: true },
         { src: M + 'tc-site-courses.webp', w: 1184, h: 578, caption: 'Free enrichment courses: chess, coding, money and critical thinking', shot: true },
         { src: M + 'tc-site-schools.webp', w: 1400, h: 875, caption: 'TutorCraft for schools', shot: true },
