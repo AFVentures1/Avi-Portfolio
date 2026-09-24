@@ -136,6 +136,21 @@ window.SITE_DATA = (function () {
       ]
     },
     {
+      id: 'investing', title: 'Personal Investing', kind: 'Personal · Finance', group: 'ventures',
+      role: 'Managing my own portfolio', when: 'Ongoing', where: 'Self-directed',
+      status: ['live', 'Ongoing'], cover: M + 'investing-portfolio.webp', glyph: 'chart', tone: 'ink',
+      lead: 'Managing a small portfolio of my own, to learn how markets behave with real money at stake.',
+      body: [
+        'Alongside YEC, I manage a small investment portfolio of my own. It currently holds PAX Gold (a token backed by physical gold), Bitcoin and a stablecoin (USDT) kept as cash, split across a store of value, a higher-risk growth asset and a cash reserve.',
+        'Some positions are currently showing losses, which has been part of the lesson: watching how prices move, sticking to a plan instead of reacting to every swing, and understanding why diversification and position sizing matter. It is the practical side of the investing ideas we discuss in YEC sessions.'
+      ],
+      did: ['Choosing assets and deciding how to split the portfolio', 'Tracking performance and unrealised gains and losses', 'Keeping a cash reserve instead of being fully invested'],
+      links: [],
+      media: [
+        { src: M + 'investing-portfolio.webp', w: 800, h: 1624, caption: 'My portfolio overview, with balances and amounts blurred for privacy', shot: true }
+      ]
+    },
+    {
       id: 'tutorcraft', title: 'TutorCraft', kind: 'Service · Tutoring', group: 'community',
       role: 'Website, AI marketing and volunteer tutoring', when: 'Ongoing', where: 'Online',
       status: ['live', 'Ongoing'], cover: M + 'tc-site-home.webp', glyph: 'doc', tone: 'paper',
