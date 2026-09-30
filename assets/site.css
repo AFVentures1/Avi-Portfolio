@@ -931,3 +931,19 @@ html.gm-open, html.gm-open body { overflow: hidden; }
 @media (max-width: 1080px) { .core { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 920px) { .subjects { grid-template-columns: 1fr 1fr; } .subj.hl { min-height: 0; } }
 @media (max-width: 640px) { .subjects, .core { grid-template-columns: 1fr; } .acad-summary { grid-template-columns: 1fr 1fr; } .acad-summary div:nth-child(3) { padding-left: 0; border-left: 0; } .acad-summary div:nth-child(n+3) { border-top: 1px solid var(--line); } }
+
+/* ---------- AVI OS handoff (footer link + typing "avios") ---------- */
+.os-hint kbd { font-family: var(--mono); font-size: 11.5px; padding: 1px 6px; border: 1px solid var(--line-dark); border-radius: 5px; color: var(--on-ink); }
+#os-boot {
+  position: fixed; inset: 0; z-index: 300;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding-bottom: 130px;
+  background: var(--ember); color: var(--ink);
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.6s var(--ease-io), background-color 0.35s ease 0.45s, color 0.35s ease 0.45s;
+}
+#os-boot.go { clip-path: inset(0 0 0 0); background: var(--ink); color: var(--on-ink); }
+#os-boot svg { width: 88px; height: auto; transform: scale(0.7); opacity: 0; transition: 0.6s var(--ease) 0.35s; }
+#os-boot.go svg { transform: none; opacity: 1; }
+#os-boot p { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0; transition: opacity 0.4s ease 0.55s; }
+#os-boot.go p { opacity: 0.7; }
+@media (hover: none) { .os-hint { display: none; } }

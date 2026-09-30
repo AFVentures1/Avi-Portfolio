@@ -761,6 +761,36 @@
     }, function () { location.href = 'mailto:' + cm.getAttribute('data-mail'); }).then(function () { setTimeout(function () { i.textContent = 'Copy'; }, 1800); });
   });
 
+  /* ---------------- AVI OS handoff ---------------- */
+  // Footer link and the typed word "avios" both wipe into the dashboard,
+  // which picks up the handoff via ?from=portfolio and plays its boot screen.
+  var OS_URL = 'https://avi-os-iota.vercel.app/home?from=portfolio';
+  var bootOS = function () {
+    if (reduce) { location.href = OS_URL; return; }
+    var el = document.createElement('div');
+    el.id = 'os-boot';
+    el.innerHTML = '<svg viewBox="0 0 66 64" aria-hidden="true"><use href="#mark" /><rect x="57.5" y="47" width="7" height="7" fill="#ff5a1f" /></svg><p>Booting AVI OS</p>';
+    document.body.appendChild(el);
+    requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add('go'); }); });
+    setTimeout(function () { location.href = OS_URL; }, 1050);
+  };
+  document.querySelectorAll('[data-os-boot]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault(); bootOS();
+    });
+  });
+  var typed = '';
+  document.addEventListener('keydown', function (e) {
+    var t = e.target;
+    if (e.metaKey || e.ctrlKey || e.altKey || !e.key || e.key.length !== 1) return;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    typed = (typed + e.key.toLowerCase()).slice(-5);
+    if (typed === 'avios') { typed = ''; bootOS(); }
+  });
+  // coming back with the browser's back button: drop the overlay
+  window.addEventListener('pageshow', function (e) { var el = $('#os-boot'); if (e.persisted && el) el.remove(); });
+
   var yr = $('#yr');
   if (yr) yr.textContent = new Date().getFullYear();
 })();
